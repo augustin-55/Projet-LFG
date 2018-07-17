@@ -1,0 +1,36 @@
+
+// colors
+
+/*$primary: #5ce0e0;*/
+@import "~bootswatch/dist/flatly/_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+
+// ----- body -----
+
+body {
+    background-color: black;
+}
+
+// ----- header -----
+
+header {
+    background-color: lightgrey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// ----- main content -----
+
+// formulaire d'inscription
+
+.form-inscription {
+    border: 1px solid black;
+    background-color: lightgrey;
+    margin: 10px;
+    padding: 10px; 
+}
+
+// ----- footer -----
