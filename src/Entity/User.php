@@ -1,88 +1,217 @@
-<?php 
+<?php
 
 namespace App\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User extends BaseUser
+class User
 {
     /**
-     * @ORM\Id
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     *
-     * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
-     *
-     * @var string
+     * @ORM\Column(type="string", length=100)
      */
-    protected $country;
-    /**
-     * @ORM\Column(type="string", length=35, nullable=true)
-     *
-     * @var string
-     */
-    protected $location;
+    private $username;
 
     /**
-     * @return int
+     * @ORM\Column(type="string", length=100)
      */
+    private $password;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $mail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $message;
+
+    // /**
+    //  * @ORM\OneToMany(targetEntity="App\Entity\Gameuser", mappedBy="user")
+    //  */
+    // private $gameUsers;
+
+    /**
+     * Many Users have Many Users.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="myFriends")
+     */
+    private $friendsWithMe;
+
+    /**
+     * Many Users have many Users.
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="friendsWithMe")
+     * @ORM\JoinTable(name="friends",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="friend_user_id", referencedColumnName="id")}
+     *      )
+     */
+    private $myFriends;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user")
+     */
+    private $messages;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user")
+     */
+    private $usermessages;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="user_group")
+     */
+    private $groups;
+
+    
+    public function __construct()
+    {
+        $this->friendsWithMe = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->myFriends = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->messages = new ArrayCollection();
+        $this->groups = new ArrayCollection();
+    }
 
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
+    public function getUsername(): ?string
     {
-        $this->id = $id;
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+   
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
     }
 
     /**
-     * @return string
+     * @return Collection|Message[]
      */
-    public function getCountry()
+    public function getMessages(): Collection
     {
-        return $this->country;
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            // set the owning side to null (unless already changed)
+            if ($message->getUserId() === $this) {
+                $message->setUserId(null);
+            }
+        }
+
+        return $this;
     }
 
     /**
-     * @param mixed $country
+     * @return Collection|Group[]
      */
-    public function setCountry($country)
+    public function getGroups(): Collection
     {
-        $this->country = $country;
+        return $this->groups;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getLocation()
+    public function addGroup(Group $group): self
     {
-        return $this->location;
+        if (!$this->groups->contains($group)) {
+            $this->groups[] = $group;
+            $group->addUserGroup($this);
+        }
+
+        return $this;
     }
 
-    /**
-     * @param mixed $location
-     */
-    public function setLocation($location)
+    public function removeGroup(Group $group): self
     {
-        $this->location = $location;
-    }
+        if ($this->groups->contains($group)) {
+            $this->groups->removeElement($group);
+            $group->removeUserGroup($this);
+        }
 
-    /**
-     * @return mixed
-     */
+        return $this;
+    }
 }
