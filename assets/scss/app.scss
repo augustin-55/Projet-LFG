@@ -7,16 +7,25 @@
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 @import "variables";
-
+@font-face {
+    font-family: "razer";
+    src: url("font\RazerF5Thin.woff")    
+}
 
 // ----- body -----
 
 
 // section crée pour hauteur main /!\ a enlever pour reponsivity ----
+
+body{
+   background-image: url(C:\xampp\htdocs\Projet-LFG\assets\image\grille.svg);
+}
+
 .test {
     height: 900px;
     display: flex;
     justify-content: center;
+    
 
     form {
         flex: 1;
@@ -24,9 +33,11 @@
     }
          h2, a{
             color:$vert;             
+            flex: 1;
+            margin: auto;
             display: flex;
-            // justify-content: center;
-            margin-left: 248px;
+            justify-content: center;
+            margin-bottom: 20px;
      }
  }
  label{
