@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/base.css') }}" />
+{% endblock %}
+
+{# ----- header ----- #}
+
+{% block header %}
+    <header>
+        <div class="title-header">
+            <h1>LFG</h1>
+        </div>
+
+        <ul class="header-menu">
+            <div class="userPhoto">
+                <img src="build/images/avatar2.png" alt="avatar">
+            </div>
+            <li class="user-menu-header">
+                <a href="#">Pseudo</a>
+            </li>
+            <li class="actu-menu-header">
+                <a href="#">Actualités</a>
+            </li>
+            <input type="search">
+        </ul>
+    </header>
+{% endblock %}
+
+{# ----- body ----- #}
+
+{% block body %}
+
+    <section class="main-container-section">
+
+        <!-- colonne gauche : menu du body -->
+
+        <ul class="main-menu">
+            <li><a href="#" class="btn-content btn-content-amis">
+                    <i class="fas fa-user"></i>
+                    <p>Amis</p>
+                </a></li>
+            <li><a href="#" class="btn-content btn-content-groupes">
+                    <i class="fas fa-users"></i>
+                    <p>Groupes</p>
+                </a></li>
+            <li><a href="#" class="btn-content btn-content-messages">
+                    <i class="fas fa-comments"></i>
+                    <p>Messages</p>
+                </a></li>
+        </ul>
+
+        <!-- colonne milieu : contenu de la page -->
+
+        <div class="main-content main-content-amis">
+            <h2>Mes amis</h2>
+        </div>
+
+        <div class="main-content main-content-groupes">
+            <h2>Mes groupes</h2>
+        </div>
+
+        <div class="main-content main-content-messages">
+            <h2>Messagerie - Chat en ligne</h2>
+        </div>
+
+        <!-- colonne droite : amis -->
+
+        <div class="main-friends">
+            <h2>Amis connectés</h2>
+            <div class="friend-div">
+                <div class="friendPhoto">
+                    <img src="build/images/avatar.jpg" alt="avatar">
+                </div>
+                <p>Homer</p>
+            </div>
+            <div class="friend-div">
+                <div class="friendPhoto">
+                    <img src="build/images/avatar.jpg" alt="avatar">
+                </div>
+                <p>Homer</p>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{# ----- footer ----- #}
+
+{% block footer %}
+    <footer>
+        <p>Copyright 2018</p>
+    </footer>
+{% endblock %}

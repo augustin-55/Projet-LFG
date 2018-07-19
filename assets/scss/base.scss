@@ -1,0 +1,202 @@
+// ----- imports -----
+
+@import "~bootswatch/dist/flatly/_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+
+@font-face {
+    font-family: 'Teko-Regular';
+    src: url('build/fonts/Teko-Regular.ttf');
+}
+
+// ----- body -----
+
+body {
+    background-color: grey;
+    margin: 0;
+}
+
+// ----- header -----
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181818;
+    padding: 0 10px;
+    font-family: 'Teko-Regular';
+
+    .title-header {
+        margin: 0 10px;
+        color: #00f000;
+
+        h1 {
+            font-size: 60px;
+            margin: 0;
+        }
+    }
+
+    // header menu
+
+    .header-menu {
+        display: flex;
+        margin: 0;
+        align-items: center;
+
+        img {
+            border: 1px solid black;
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .user-menu-header {
+            list-style-type: none;
+
+            a {
+                color: #00f000;
+                text-decoration: none;
+                margin: 0 20px 0 10px;
+                font-size: 20px;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: #00eeff;
+                transition: color 0.2s linear;
+            }
+        }
+
+        .actu-menu-header {
+            list-style-type: none;
+
+            a {
+                color: #00f000;
+                text-decoration: none;
+                margin: 0 20px;
+                font-size: 20px;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: #00eeff;
+                transition: color 0.2s linear;
+            }
+        }
+
+        input {
+            border: 1px solid black;
+            background-color: #3a3a3a;
+            color: white;
+            border-radius: 5px;
+            margin: 0 20px;
+        }
+    }
+}
+
+// ----- main contact - page 2 -----
+
+section {
+    margin: 10px 0;
+    display: flex;
+
+    // colonne gauche : menu body
+
+    .main-menu {
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #181818;
+        margin: 0 0 0 5px;
+        padding: 0;
+        width: 140px;
+    
+        li {
+            list-style-type: none;
+    
+            a {
+                color: white;
+                text-decoration: none;
+                margin: 10px 20px;
+                display: flex;
+                font-family: 'Teko-Regular';
+                font-size: 16px;
+
+                p {
+                    margin: 0 0 0 20px;
+                }
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: #00eeff;
+                transition: color 0.2s linear;
+            }
+        }
+    }
+
+    // colonne milieu : contenu page
+
+    .main-content {
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+
+    // colonne droite : amis
+
+    .main-friends {
+        border: 1px solid black;
+        margin: 0 5px 0 0;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #181818;
+        width: 140px;
+
+        h2 {
+            font-size: 22px;
+            font-family: 'Teko-Regular';
+            text-align: center;
+            margin: 10px 0 20px 0;
+            color: #00f000;
+        }
+
+        .friend-div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .friendPhoto {
+                img {
+                    max-width: 50px;
+                    max-height: 50px;
+                    border: 1px solid black;
+                    border-radius: 100%;
+                    margin: 0 10px;
+                }
+            }
+    
+            p {
+                color: white;
+                font-family: 'Teko-Regular';
+                font-size: 18px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+// ----- footer -----
+
+footer {
+    p {
+        background-color: #181818;
+        text-align: center;
+        color: white;
+        padding: 10px;
+        font-family: 'Teko-Regular';
+        font-size: 20px;
+    }
+}

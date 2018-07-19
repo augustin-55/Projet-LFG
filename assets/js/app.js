@@ -32,7 +32,7 @@ $(document).ready(function() {
 
      // requête AJAX formulaire inscription
 
-    $('.btn-inscription').click(function(e)
+    /* $('.btn-content').click(function(e)
     {
         $.ajax({
             url: '/register/',
@@ -43,9 +43,28 @@ $(document).ready(function() {
 
             success: function(data)
             {
-                $('.form-inscription').html(data);
+                console.log( 'ok' );
             }
         });
+    }); */
+
+    $('.btn-content').click(function() {
+
+        var classBtn = $(this).attr('class');
+
+        var nameBtn = classBtn.substr(24, 40);
+
+        console.log(nameBtn);
+
+        switch (key) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+
     });
 
 });
