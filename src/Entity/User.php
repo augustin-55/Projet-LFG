@@ -214,4 +214,104 @@ class User
 
         return $this;
     }
+
+    /**
+     * Get many Users have Many Users.
+     */ 
+    public function getFriendsWithMe()
+    {
+        return $this->friendsWithMe;
+    }
+
+    /**
+     * Set many Users have Many Users.
+     *
+     * @return  self
+     */ 
+    public function setFriendsWithMe($friendsWithMe)
+    {
+        $this->friendsWithMe = $friendsWithMe;
+
+        return $this;
+    }
+
+    /**
+     * Get many Users have many Users.
+     */ 
+    public function getMyFriends()
+    {
+        return $this->myFriends;
+    }
+
+    /**
+     * Set many Users have many Users.
+     *
+     * @return  self
+     */ 
+    public function setMyFriends($myFriends)
+    {
+        $this->myFriends = $myFriends;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of groups
+     */ 
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * Set the value of groups
+     *
+     * @return  self
+     */ 
+    public function setGroups($groups)
+    {
+        $this->groups = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usermessages
+     */ 
+    public function getUsermessages()
+    {
+        return $this->usermessages;
+    }
+
+    /**
+     * Set the value of usermessages
+     *
+     * @return  self
+     */ 
+    public function setUsermessages($usermessages)
+    {
+        $this->usermessages = $usermessages;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of messages
+     */ 
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+
+    /**
+     * Set the value of messages
+     *
+     * @return  self
+     */ 
+    public function setMessages($messages)
+    {
+        $this->messages = $messages;
+
+        return $this;
+    }
 }
