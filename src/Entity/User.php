@@ -258,7 +258,7 @@ class User
     /**
      * Get the value of groups
      */ 
-    public function getGroups()
+    public function getGroupes()
     {
         return $this->groups;
     }
@@ -268,7 +268,7 @@ class User
      *
      * @return  self
      */ 
-    public function setGroups($groups)
+    public function setGroupes($groups)
     {
         $this->groups = $groups;
 
@@ -295,13 +295,6 @@ class User
         return $this;
     }
 
-    /**
-     * Get the value of messages
-     */ 
-    public function getMessages()
-    {
-        return $this->messages;
-    }
 
     /**
      * Set the value of messages
