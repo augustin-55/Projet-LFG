@@ -8,13 +8,27 @@
     </head>
     <body>
 
-        {% block header %}{% endblock %}
+        {% block header %}
+
+            <header >
+            <h1>LFG</h1>
+
+            
+            </header>
+
+        {% endblock %}
 
         {% block main_content %}
             {% block body %}{% endblock %}
         {% endblock %}
 
-        {% block footer %}{% endblock %}
+        
+        {% block footer %}
+        <footer>
+        <h2>FOOTER</h2>
+        {# ----- footer ----- #}
+        </footer>
+        {% endblock %}
 
         <script src="{{ asset('build/js/app.js') }}"></script>
         {{ tinymce_init() }}
