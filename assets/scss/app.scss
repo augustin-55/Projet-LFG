@@ -25,21 +25,28 @@ body{
     height: 900px;
     display: flex;
     justify-content: center;
-    
+    flex-direction: column;    
 
     form {
         flex: 1;
         margin: auto;
     }
-         h2, a{
-            color:$vert;             
-            flex: 1;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+
+     #test2 {
+        min-width: 200px;
+        margin: auto;
+     }
+
+    h2, a{
+        color:$vert;             
+        flex: 1;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
      }
  }
+
  label{
      color:$vert;
  }
