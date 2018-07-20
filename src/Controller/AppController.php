@@ -20,7 +20,7 @@ class AppController extends Controller
         return $this->render('app/index.html.twig', [
 
             'groups' => $groups
-            
+
         ]);
     }
 }
