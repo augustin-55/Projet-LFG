@@ -9,20 +9,25 @@
 {% block header %}
     <header>
         <div class="title-header">
-            <h1>LFG</h1>
+            <h1><a href="{{ path('app') }}">LFG</a></h1>
         </div>
 
         <ul class="header-menu">
             <div class="userPhoto">
-                <img src="build/images/avatar2.png" alt="avatar">
+                <img src="{{ asset('images/avatar2.png') }}" alt="avatar">
             </div>
             <li class="user-menu-header">
-                <a href="#">Pseudo</a>
+                <a href="{{ path('profile') }}">Pseudo</a>
             </li>
-            <li class="actu-menu-header">
-                <a href="#">Actualités</a>
-            </li>
-            <input type="search">
+
+            <div class="search-input-div">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text btn submit-search-btn"><i class="fas fa-search"></i></div>
+                    </div>
+                    <input type="search" class="form-control search-input" id="inlineFormInputGroupUsername">
+                </div>
+            </div>
         </ul>
     </header>
 {% endblock %}
@@ -31,11 +36,15 @@
 
 {% block body %}
 
-    <section class="main-container-section">
+    <main class="main-container-section">
 
         <!-- colonne gauche : menu du body -->
 
         <ul class="main-menu">
+            <li><a href="#" class="btn-content btn-content-default">
+                    <i class="fas fa-home"></i>
+                    <p>Accueil</p>
+                </a></li>
             <li><a href="#" class="btn-content btn-content-amis">
                     <i class="fas fa-user"></i>
                     <p>Amis</p>
@@ -52,15 +61,75 @@
 
         <!-- colonne milieu : contenu de la page -->
 
-        <div class="main-content main-content-amis">
-            <h2>Mes amis</h2>
+        <div class="content-milieu content-default">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('images/counterstrike.png') }}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/battlerite.jpg') }}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/fortnite.jpg') }}" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/overwatch.jpg') }}" alt="Fourth slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/lol.jpg') }}" alt="Fifth slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/rocketleague.jpg') }}" alt="Sixth slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('images/rainbowsix.jpg') }}" alt="Seventh slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+
+            <section class="section-content-default">
+
+            </section>
+
         </div>
 
-        <div class="main-content main-content-groupes">
-            <h2>Mes groupes</h2>
+        <div class="content-milieu content-amis">
+            <section class="section-content-amis">
+                <h2>Liste d'amis</h2>
+                <hr>
+            </section>
         </div>
 
-        <div class="main-content main-content-messages">
+        <div class="content-milieu content-groupes">
+            <section class="section-content-groupes">
+                <h2>Mes groupes</h2>
+                <hr>
+                <div class="affichage-groupes">
+                    Affichage groupes
+                </div>
+            </section>
+        </div>
+
+        <div class="content-milieu content-messages">
             <h2>Messagerie - Chat en ligne</h2>
         </div>
 
@@ -70,19 +139,19 @@
             <h2>Amis connectés</h2>
             <div class="friend-div">
                 <div class="friendPhoto">
-                    <img src="build/images/avatar.jpg" alt="avatar">
+                    <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
                 </div>
                 <p>Homer</p>
             </div>
             <div class="friend-div">
                 <div class="friendPhoto">
-                    <img src="build/images/avatar.jpg" alt="avatar">
+                    <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
                 </div>
                 <p>Homer</p>
             </div>
         </div>
 
-    </section>
+    </main>
 
 {% endblock %}
 
@@ -91,5 +160,6 @@
 {% block footer %}
     <footer>
         <p>Copyright 2018</p>
+        <p><a href="#">Mentions légales</a></p>
     </footer>
 {% endblock %}

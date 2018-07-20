@@ -30,23 +30,7 @@ $(document).ready(function() {
 
     });
 
-     // requête AJAX formulaire inscription
-
-    /* $('.btn-content').click(function(e)
-    {
-        $.ajax({
-            url: '/register/',
-            method: 'POST',
-            dataType: 'html',
-
-            // si la requête est envoyée
-
-            success: function(data)
-            {
-                console.log( 'ok' );
-            }
-        });
-    }); */
+     // affichage des contenus principaux de la page - colonne milieu
 
     $('.btn-content').click(function() {
 
@@ -54,14 +38,25 @@ $(document).ready(function() {
 
         var nameBtn = classBtn.substr(24, 40);
 
-        console.log(nameBtn);
-
-        switch (key) {
-            case value:
-                
+        switch (nameBtn) {
+            case 'default':
+                $('.content-milieu').hide();
+                $('.content-default').fadeIn();
                 break;
-        
-            default:
+
+            case 'amis':
+                $('.content-milieu').hide();
+                $('.content-amis').fadeIn();
+                break;
+
+            case 'groupes':
+                $('.content-milieu').hide();
+                $('.content-groupes').fadeIn();
+                break;
+
+            case 'messages':
+                $('.content-milieu').hide();
+                $('.content-messages').fadeIn();
                 break;
         }
 

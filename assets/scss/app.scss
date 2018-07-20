@@ -7,19 +7,15 @@
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 @import "variables";
-@font-face {
-    font-family: "razer";
-    src: url("font\RazerF5Thin.woff")    
-}
 
 // ----- body -----
 
 
 // section crée pour hauteur main /!\ a enlever pour reponsivity ----
 
-body{
-   background-image: url(C:\xampp\htdocs\Projet-LFG\assets\image\grille.svg);
-}
+/* body {
+    background-image: url(C:\xampp\htdocs\Projet-LFG\assets\image\grille.svg);
+} */
 
 .test {
     height: 900px;

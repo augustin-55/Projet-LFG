@@ -14,6 +14,7 @@ Encore
   .addEntry('js/app', './assets/js/app.js')
   .addStyleEntry('css/app', './assets/scss/app.scss')
   .addStyleEntry('css/base', './assets/scss/base.scss')
+  .addStyleEntry('css/profile', './assets/scss/profile.scss')
   .addStyleEntry('css/admin', './assets/scss/admin.scss')
 
   // uncomment if you use Sass/SCSS files
