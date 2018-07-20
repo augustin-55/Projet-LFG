@@ -11,10 +11,15 @@
     src: url('fonts/Teko-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'Merienda-Regular';
+    src: url('fonts/Merienda-Regular.ttf');
+}
+
 // ----- body -----
 
 body {
-    background-color: black;
+    background-color: #0c0c0c;
     margin: 0;
 }
 
@@ -64,34 +69,16 @@ header {
             list-style-type: none;
 
             a {
-                color: #00f000;
+                color: white;
                 text-decoration: none;
                 margin: 0 20px 0 10px;
-                font-size: 20px;
+                font-size: 18px;
             }
 
             a:hover,
             a:focus,
             a:active {
-                color: #00eeff;
-                transition: color 0.2s linear;
-            }
-        }
-
-        .actu-menu-header {
-            list-style-type: none;
-
-            a {
-                color: #00f000;
-                text-decoration: none;
-                margin: 0 20px;
-                font-size: 20px;
-            }
-
-            a:hover,
-            a:focus,
-            a:active {
-                color: #00eeff;
+                color: #eeff00;
                 transition: color 0.2s linear;
             }
         }
@@ -133,7 +120,7 @@ main {
         margin: 0 0 0 5px;
         padding: 0;
         width: 140px;
-        height: 140px;
+        height: 170px;
     
         li {
             list-style-type: none;
@@ -141,20 +128,26 @@ main {
             a {
                 color: white;
                 text-decoration: none;
-                margin: 10px 20px;
+                margin: 5px 10px;
                 display: flex;
                 font-family: 'Teko-Regular';
                 font-size: 16px;
 
-                p {
-                    margin: 0 0 0 20px;
+                i {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                }
+
+                p:first-child {
+                    margin: 0;
                 }
             }
 
             a:hover,
             a:focus,
             a:active {
-                color: #00eeff;
+                color: #d0df00;
                 transition: color 0.2s linear;
             }
         }
@@ -175,11 +168,41 @@ main {
         // section - partie default
 
         .section-content-default {
-            border: 1px solid black;
-            background-color: lightgrey;
+            background-color: #222222;
             width: 95%;
-            height: 200px;
-            margin: 0 auto;
+            margin: 5px auto;
+
+            h3 {
+                color: #ffffff;
+                text-align: center;
+                margin: 10px 0;
+                text-shadow: 2px 2px 3px #1d1d1d;
+                font-family: 'Merienda-Regular';
+            }
+
+            hr {
+                width: 70%;
+                background-color: #636363;
+            }
+
+            .affichage-groupes-section {
+                display: flex;
+
+                .groupe-affichage {
+                    border: 1px solid black;
+                    background-color: lightgrey;
+                    display: flex;
+                    padding: 5px 10px;
+                    width: 300px;
+                    border-radius: 5px;
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid black;
+                    }
+                }
+            }
         }
     }
 
