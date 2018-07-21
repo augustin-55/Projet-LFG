@@ -3,18 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
-        {% block stylesheets %}{% endblock %}
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}" />
+        {% endblock %}
     </head>
     <body>
 
-        {% block header %}{% endblock %}
+        {% block header %}
+
+            <header >
+            <h1>LFG</h1>
+
+            
+            </header>
+
+        {% endblock %}
 
         {% block main_content %}
             {% block body %}{% endblock %}
         {% endblock %}
 
-        {% block footer %}{% endblock %}
+        
+        {% block footer %}
+        <footer>
+        <h2>FOOTER</h2>
+        {# ----- footer ----- #}
+        </footer>
+        {% endblock %}
 
         <script src="{{ asset('build/js/app.js') }}"></script>
         {{ tinymce_init() }}
