@@ -1,4 +1,8 @@
 @import "~bootswatch/dist/cosmo/_variables";
+@import "~bootswatch/dist/flatly/_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
 @mixin transition($transition...) {
     -moz-transition:    $transition;
     -o-transition:      $transition;

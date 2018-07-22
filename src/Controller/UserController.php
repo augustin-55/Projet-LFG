@@ -1,21 +1,31 @@
 <?php
-// src/Controller/UserController.php
+
 namespace App\Controller;
 
-
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Groupe;
+
+
 
 class UserController extends Controller
 {
-
     /**
-     * @Route("/")
+     * @Route("/", name="app")
      */
-    public function userAction()
+    public function index()
     {
-        return $this->render('index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $groupes = $em->getRepository(Groupe::class)->findAll();
+
+        return $this->render('index.html.twig', 
+        [
+
+            'groupes' => $groupes
+
+        ]
+    );
     }
-    
 }
 
