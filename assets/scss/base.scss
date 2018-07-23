@@ -242,40 +242,98 @@ header {
 
     .content-amis {
         display: none;
-    }
+        background-color: #1d1d1d;
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
 
-    .content-groupes {
-        display: none;
-        width: 90%;
-
-        .section-content-groupes {
-            width: 95%;
-            background-color: lightgrey;
-            margin: 0 auto;
-            border-radius: 5px;
-
+        .section-content-amis {
+            
             h2 {
                 text-align: center;
+                color: white;
+                font-size: 26px;
+                font-family: 'Merienda-Regular';
             }
 
             hr {
                 width: 70%;
+                background-color: white;
             }
 
-            .btn-ajout-groupe {
-                border: 1px solid grey;
-                color: black;
-            }
-
-            .recherche-groupe {
+            .liste-amis {
                 border: 1px solid black;
-                margin: 10px 0 0 0;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+                .amis {
+                    display: flex;
+                    align-items: center;
+
+                    .avatar {
+                        border-radius: 5px;
+                        background-color: grey;
+                        width: 60px;
+                        height: 60px;
+                        margin-right: 10px;
+                    }
+
+                    .username {
+                        color: white;
+                        font-size: 20px;
+                        font-family: 'Teko-Regular';
+                    }
+                }
+            }
+        }
+    }
+
+    .content-groupes {
+        display: none;
+        background-color: #1d1d1d;
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+
+        .section-content-groupes {
+            
+            h2 {
+                text-align: center;
+                color: white;
+                font-size: 26px;
+                font-family: 'Merienda-Regular';
+            }
+
+            hr {
+                width: 70%;
+                background-color: white;
             }
         }
     }
 
     .content-messages {
         display: none;
+        background-color: #1d1d1d;
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+
+        .section-content-messages {
+            
+            h2 {
+                text-align: center;
+                color: white;
+                font-size: 26px;
+                font-family: 'Merienda-Regular';
+            }
+
+            hr {
+                width: 70%;
+                background-color: white;
+            }
+        }
     }
 
     // --- colonne droite : amis ---
@@ -309,11 +367,18 @@ header {
                 }
             }
     
-            p {
+            a {
                 color: white;
                 font-family: 'Teko-Regular';
                 font-size: 18px;
                 margin: 0 5px 0 0;
+            }
+
+            a:hover,
+            a:focus,
+            a:active {
+                color: #d0df00;
+                text-decoration: none;
             }
         }
     }
