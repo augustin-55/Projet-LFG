@@ -23,7 +23,6 @@ class UserController extends Controller
         return $this->render('index.html.twig', 
         [
             'groupes' => $groupes,
-            'users' => $users
         ]
     );
     }

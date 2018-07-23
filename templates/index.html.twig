@@ -3,7 +3,7 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('build/css/base.css') }}" />
     <link rel="stylesheet" href="{{ asset('build/css/base_responsive.css') }}" media="all and (max-width: 890px)">
-    <link rel="stylesheet" href="{{ asset('build/css/base_responsive_smartphone.css') }}" media="all and (max-width: 440px)">
+    <link rel="stylesheet" href="{{ asset('build/css/base_responsive_smartphone.css') }}" media="all and (max-width: 500px)">
 {% endblock %}
 
 {# ----- header ----- #}
@@ -14,22 +14,14 @@
             <h1>
                 <a href="#">LFG</a>
             </h1>
-            <button class="btn-menu-smartphone"><i class="fas fa-angle-double-down"></i></button>
         </div>
 
-        <ul class="header-menu">
-            <div class="userPhoto">
-                <img src="{{ asset('images/avatar2.png') }}" alt="avatar">
+        <div class="header-menu">
+            <div class="user-menu-header">
+                <img src="{{ asset('images/avatar2.png') }}" alt="avatar" class="userPhoto" >
+
+                <a href="{{ path('profile') }}">Jean</a>
             </div>
-            <li class="user-menu-header">
-
-                {% for user in users %}
-
-                <a href="{{ path('profile') }}">{{ user.username }}</a>
-
-                {% endfor %}
-
-            </li>
 
             <div class="search-input-div">
                 <div class="input-group">
@@ -41,7 +33,7 @@
                     <input type="search" class="form-control search-input" id="inlineFormInputGroupUsername">
                 </div>
             </div>
-        </ul>
+        </div>
     </header>
 {% endblock %} 
 

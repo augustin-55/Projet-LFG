@@ -62,37 +62,4 @@ $(document).ready(function() {
 
     });
 
-    // affichage des contenus principaux de la page - colonne milieu
-
-    $('.btn-content').click(function () {
-
-        var classBtn = $(this).attr('class');
-
-        var nameBtn = classBtn.substr(24, 40);
-
-        switch (nameBtn) {
-            case 'default':
-                $('.content-milieu').hide();
-                $('.content-default').fadeIn();
-                break;
-
-            case 'amis':
-                $('.content-milieu').hide();
-                $('.content-amis').fadeIn();
-                break;
-
-            case 'groupes':
-                $('.content-milieu').hide();
-                $('.content-groupes').fadeIn();
-                break;
-
-            case 'messages':
-                $('.content-milieu').hide();
-                $('.content-messages').fadeIn();
-                break;
-        }
-
-    });
-
-
 });
