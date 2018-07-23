@@ -1,24 +1,81 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} {% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/base.css') }}" /> {% endblock %} {# ----- header ----- #} {% block header %}
+<header>
+    <div class="title-header">
+        <h1>
+            <a href="{{ path('app') }}">LFG</a>
+        </h1>
+    </div>
 
-{# ----- header ----- #}
+    <ul class="header-menu">
+        <div class="userPhoto">
+            <img src="{{ asset('images/avatar2.png') }}" alt="avatar">
+        </div>
+        <li class="user-menu-header">
+            <a href="{{ path('profile') }}">Pseudo</a>
+        </li>
 
-{% block header %}
+        <div class="search-input-div">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text btn submit-search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <input type="search" class="form-control search-input" id="inlineFormInputGroupUsername">
+            </div>
+        </div>
+    </ul>
+</header>
+{% endblock %} {# ----- body ----- #} {% block body %}
 
+<<<<<<< HEAD
     <header >
         <h1>LFG</h1>
 
   
     </header>
+=======
+<main class="main-container-section">
 
-{% endblock %}
+    <!-- colonne gauche : menu du body -->
+>>>>>>> origin/thomas
 
-{# ----- body ----- #}
+    <ul class="main-menu">
+        <li>
+            <a href="#" class="btn-content btn-content-default">
+                <i class="fas fa-home"></i>
+                <p>Accueil</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-amis">
+                <i class="fas fa-user"></i>
+                <p>Amis</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-groupes">
+                <i class="fas fa-users"></i>
+                <p>Groupes</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-messages">
+                <i class="fas fa-comments"></i>
+                <p>Messages</p>
+            </a>
+        </li>
+    </ul>
 
+    <!-- colonne milieu : contenu de la page -->
+
+<<<<<<< HEAD
 {% block body %}    
     <section class="test">        
             <form>
             <h2>LOGIN</h2>
-            <a href="{{ path('fos_user_registration_register') }}" >Register</a>
+            {#<a href="{{ path('fos_user_registration_register') }}" >Register</a>
             <div class="form-group col-4 offset-4 ">
                 <label  for="exampleInputEmail1">Email address</label>
                 <div class="bc-divider text-left max-350">
@@ -31,7 +88,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
             <button type="submit " class="btn btn-primary col-2 offset-5">Login</button>
-            </form>
+            </form>#}
     </section>
 {% endblock %}
 
@@ -44,3 +101,149 @@
         <h2>FOOTER</h2>
     </footer>
 {% endblock %}
+=======
+    <div class="content-milieu content-default">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ asset('images/counterstrike.png') }}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/battlerite.jpg') }}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/fortnite.jpg') }}" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/overwatch.jpg') }}" alt="Fourth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/lol.jpg') }}" alt="Fifth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/rocketleague.jpg') }}" alt="Sixth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/rainbowsix.jpg') }}" alt="Seventh slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Précédent</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+        </div>
+
+        <section class="section-content-default">
+            <h3>Groupes</h3>
+            <hr>
+            <div class="affichage-groupes-section">
+                {% for groupe in groupes %}
+                <div class="groupe-affichage">
+                    <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
+                    <div class="groupe-part-right">
+                        <p>{{ groupe.name }}</p>
+                        <a href="#" class="btn btn-primary btn-rejoindre">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="groupe-affichage">
+                    <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
+                    <div class="groupe-part-right">
+                        <p>Groupe 2</p>
+                        <a href="#" class="btn btn-primary btn-rejoindre">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="groupe-affichage">
+                    <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
+                    <div class="groupe-part-right">
+                        <p>Groupe 3</p>
+                        <a href="#" class="btn btn-primary btn-rejoindre">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="groupe-affichage">
+                    <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
+                    <div class="groupe-part-right">
+                        <p>Groupe 4</p>
+                        <a href="#" class="btn btn-primary btn-rejoindre">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="content-milieu content-amis">
+        <section class="section-content-amis">
+            <h2>Liste d'amis</h2>
+            <hr>
+        </section>
+    </div>
+
+    <div class="content-milieu content-groupes">
+        <section class="section-content-groupes">
+            <h2>Mes groupes</h2>
+            <hr>
+            <div class="affichage-groupes">
+                Affichage groupes
+            </div>
+        </section>
+    </div>
+
+    <div class="content-milieu content-messages">
+        <h2>Messagerie - Chat en ligne</h2>
+    </div>
+
+    <!-- colonne droite : amis -->
+
+    <div class="main-friends">
+        <h2>Amis connectés</h2>
+        <div class="friend-div">
+            <div class="friendPhoto">
+                <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
+            </div>
+            <p>Homer</p>
+        </div>
+        <div class="friend-div">
+            <div class="friendPhoto">
+                <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
+            </div>
+            <p>Homer</p>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %} {# ----- footer ----- #} {% block footer %}
+<footer>
+    <p>Copyright 2018</p>
+    <p>
+        <a href="#">Mentions légales</a>
+    </p>
+</footer>
+{% endblock %}
+>>>>>>> origin/thomas

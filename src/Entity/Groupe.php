@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\GroupeRepository")
  */
-class Group
+class Groupe
 {
     /**
      * @ORM\Id()
@@ -19,14 +19,14 @@ class Group
     private $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\user", inversedBy="groups")
+     * @ORM\ManyToMany(targetEntity="App\Entity\user", inversedBy="groupes")
      */
-    private $user_group;
+    private $user_groupe;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $group_game;
+    private $groupe_game;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -51,11 +51,11 @@ class Group
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Game", inversedBy="game_s")
      */
-    private $gamegroup;
+    private $gamegroupe;
 
     public function __construct()
     {
-        $this->user_group = new ArrayCollection();
+        $this->user_groupe = new ArrayCollection();
     }
 
     public function getId()
@@ -66,37 +66,37 @@ class Group
     /**
      * @return Collection|user[]
      */
-    public function getUserGroup(): Collection
+    public function getUserGroupe(): Collection
     {
-        return $this->user_group;
+        return $this->user_groupe;
     }
 
-    public function addUserGroup(user $userGroup): self
+    public function addUserGroupe(user $userGroupe): self
     {
-        if (!$this->user_group->contains($userGroup)) {
-            $this->user_group[] = $userGroup;
+        if (!$this->user_groupe->contains($userGroupe)) {
+            $this->user_groupe[] = $userGroupe;
         }
 
         return $this;
     }
 
-    public function removeUserGroup(user $userGroup): self
+    public function removeUserGroupe(user $userGroupe): self
     {
-        if ($this->user_group->contains($userGroup)) {
-            $this->user_group->removeElement($userGroup);
+        if ($this->user_groupe->contains($userGroupe)) {
+            $this->user_groupe->removeElement($userGroupe);
         }
 
         return $this;
     }
 
-    public function getGroupGame(): ?int
+    public function getGroupeGame(): ?int
     {
-        return $this->group_game;
+        return $this->groupe_game;
     }
 
-    public function setGroupGame(int $group_game): self
+    public function setGroupeGame(int $groupe_game): self
     {
-        $this->group_game = $group_game;
+        $this->groupe_game = $groupe_game;
 
         return $this;
     }
@@ -149,14 +149,14 @@ class Group
         return $this;
     }
 
-    public function getGamegroup(): ?Game
+    public function getGamegroupe(): ?Game
     {
-        return $this->gamegroup;
+        return $this->gamegroupe;
     }
 
-    public function setGamegroup(?Game $gamegroup): self
+    public function setGamegroupe(?Game $gamegroupe): self
     {
-        $this->gamegroup = $gamegroup;
+        $this->gamegroupe = $gamegroupe;
 
         return $this;
     }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -19,30 +20,10 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\OneToOne(targetEntity="Image", cascade="all")
      */
-    private $username;
+    private $avatar;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $mail;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $photo;
-
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $message;
 
     // /**
     //  * @ORM\OneToMany(targetEntity="App\Entity\Gameuser", mappedBy="user")
@@ -76,9 +57,9 @@ class User
     private $usermessages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="user_group")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Groupe", mappedBy="user_groupe")
      */
-    private $groups;
+    private $groupes;
 
     
     public function __construct()
@@ -86,7 +67,7 @@ class User
         $this->friendsWithMe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->myFriends = new \Doctrine\Common\Collections\ArrayCollection();
         $this->messages = new ArrayCollection();
-        $this->groups = new ArrayCollection();
+        $this->groupes = new ArrayCollection();
     }
 
     public function getId()
@@ -188,28 +169,28 @@ class User
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|Groupe[]
      */
-    public function getGroups(): Collection
+    public function getGroupes(): Collection
     {
-        return $this->groups;
+        return $this->groupes;
     }
 
-    public function addGroup(Group $group): self
+    public function addGroupe(Groupe $groupe): self
     {
-        if (!$this->groups->contains($group)) {
-            $this->groups[] = $group;
-            $group->addUserGroup($this);
+        if (!$this->groupes->contains($groupe)) {
+            $this->groupes[] = $groupe;
+            $groupe->addUserGroupe($this);
         }
 
         return $this;
     }
 
-    public function removeGroup(Group $group): self
+    public function removeGroupe(Groupe $groupe): self
     {
-        if ($this->groups->contains($group)) {
-            $this->groups->removeElement($group);
-            $group->removeUserGroup($this);
+        if ($this->groupes->contains($groupe)) {
+            $this->groupes->removeElement($groupe);
+            $groupe->removeUserGroupe($this);
         }
 
         return $this;
@@ -256,26 +237,6 @@ class User
     }
 
     /**
-     * Get the value of groups
-     */ 
-    public function getGroupes()
-    {
-        return $this->groups;
-    }
-
-    /**
-     * Set the value of groups
-     *
-     * @return  self
-     */ 
-    public function setGroupes($groups)
-    {
-        $this->groups = $groups;
-
-        return $this;
-    }
-
-    /**
      * Get the value of usermessages
      */ 
     public function getUsermessages()
@@ -295,15 +256,22 @@ class User
         return $this;
     }
 
+    /**
+     * Get the value of avatar
+     */ 
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
 
     /**
-     * Set the value of messages
+     * Set the value of avatar
      *
      * @return  self
      */ 
-    public function setMessages($messages)
+    public function setAvatar(Image $avatar)
     {
-        $this->messages = $messages;
+        $this->avatar = $avatar;
 
         return $this;
     }

@@ -110,40 +110,19 @@
                 <h3>Groupes</h3>
                 <hr>
                 <div class="affichage-groupes-section">
+
                     {% for group in groups %}
+
                     <div class="groupe-affichage">
                         <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
                         <div class="groupe-part-right">
-                            <p>{{ group.name }}</p>
+                            <p>groupe</p>
                             <a href="#" class="btn btn-primary btn-rejoindre"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
+                    
                     {% endfor %}
 
-                    <div class="groupe-affichage">
-                        <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
-                        <div class="groupe-part-right">
-                            <p>Groupe 2</p>
-                            <a href="#" class="btn btn-primary btn-rejoindre"><i class="fas fa-plus"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="groupe-affichage">
-                        <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
-                        <div class="groupe-part-right">
-                            <p>Groupe 3</p>
-                            <a href="#" class="btn btn-primary btn-rejoindre"><i class="fas fa-plus"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="groupe-affichage">
-                        <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
-                        <div class="groupe-part-right">
-                            <p>Groupe 4</p>
-                            <a href="#" class="btn btn-primary btn-rejoindre"><i class="fas fa-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
             </section>
 
         </div>

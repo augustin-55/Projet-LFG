@@ -8,13 +8,15 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType; 
+use App\Form\ImageType;
+
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
 
-        ->add('Photo', UrlType::class, array());
+        ->add('avatar', ImageType::class, array());
 
 
     }
