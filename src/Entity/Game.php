@@ -19,7 +19,7 @@ class Game
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\group", mappedBy="gamegroup")
+     * @ORM\OneToMany(targetEntity="App\Entity\groupe", mappedBy="gamegroupe")
      */
     private $game_s;
 
@@ -50,7 +50,7 @@ class Game
     }
 
     /**
-     * @return Collection|group[]
+     * @return Collection|groupe[]
      */
     public function getGameS(): Collection
     {
@@ -61,7 +61,7 @@ class Game
     {
         if (!$this->game_s->contains($game)) {
             $this->game_s[] = $game;
-            $game->setGamegroup($this);
+            $game->setGamegroupe($this);
         }
 
         return $this;
@@ -72,8 +72,8 @@ class Game
         if ($this->game_s->contains($game)) {
             $this->game_s->removeElement($game);
             // set the owning side to null (unless already changed)
-            if ($game->getGamegroup() === $this) {
-                $game->setGamegroup(null);
+            if ($game->getGamegroupe() === $this) {
+                $game->setGamegroupe(null);
             }
         }
 

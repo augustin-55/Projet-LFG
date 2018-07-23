@@ -57,7 +57,7 @@ class User
     private $usermessages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Group", mappedBy="user_group")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Groupe", mappedBy="user_groupe")
      */
     private $groupes;
 
@@ -67,7 +67,7 @@ class User
         $this->friendsWithMe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->myFriends = new \Doctrine\Common\Collections\ArrayCollection();
         $this->messages = new ArrayCollection();
-        $this->groups = new ArrayCollection();
+        $this->groupes = new ArrayCollection();
     }
 
     public function getId()
@@ -169,28 +169,28 @@ class User
     }
 
     /**
-     * @return Collection|Group[]
+     * @return Collection|Groupe[]
      */
     public function getGroupes(): Collection
     {
         return $this->groupes;
     }
 
-    public function addGroupe(Group $groupe): self
+    public function addGroupe(Groupe $groupe): self
     {
         if (!$this->groupes->contains($groupe)) {
             $this->groupes[] = $groupe;
-            $groupe->addUserGroup($this);
+            $groupe->addUserGroupe($this);
         }
 
         return $this;
     }
 
-    public function removeGroupe(Group $group): self
+    public function removeGroupe(Groupe $groupe): self
     {
-        if ($this->groups->contains($group)) {
-            $this->groups->removeElement($group);
-            $group->removeUserGroup($this);
+        if ($this->groupes->contains($groupe)) {
+            $this->groupes->removeElement($groupe);
+            $groupe->removeUserGroupe($this);
         }
 
         return $this;
