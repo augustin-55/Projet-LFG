@@ -1,0 +1,48 @@
+// header
+
+// main
+
+.main-container-section {
+    flex-direction: column;
+
+    .main-menu {
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid #00f000;
+        border-right: none;
+        background-color: #1d1d1d;
+        height: 30px;
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .content-default {
+        width: 100%;
+
+        .carousel {
+            width: 100%;
+        }
+    }
+
+    .main-friends {
+        display: flex;
+        align-items: center;
+        border-left: none;
+        background-color: #1d1d1d;
+        width: 80%;
+        margin: 0 auto 20px auto;
+        overflow: auto;
+
+        h2 {
+            border-right: 1px solid #00f000;
+            padding: 0 20px;
+            margin: 0 20px 0 0;
+        }
+
+        .friend-div {
+            margin: 10px 0;
+        }
+    }
+}
+
+// footer

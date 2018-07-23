@@ -16,6 +16,8 @@ Encore
   .addStyleEntry('css/base', './assets/scss/base.scss')
   .addStyleEntry('css/profile', './assets/scss/profile.scss')
   .addStyleEntry('css/admin', './assets/scss/admin.scss')
+  .addStyleEntry('css/base_responsive', './assets/scss/base_responsive.scss')
+  .addStyleEntry('css/base_responsive_smartphone', './assets/scss/base_responsive_smartphone.scss')
 
   // uncomment if you use Sass/SCSS files
   .enableSassLoader()

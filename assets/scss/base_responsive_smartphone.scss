@@ -1,0 +1,35 @@
+
+// header
+
+header {
+    flex-direction: column;
+
+    .btn-menu-smartphone {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background-color: #1d1d1d;
+        color: white;
+    }
+
+    .header-menu {
+        flex-direction: column;
+        padding: 0;
+
+        .search-input-div {
+            margin-top: 10px;
+        }
+    }
+}
+
+// main
+
+.main-menu {
+    // flex-direction: column;
+    height: 200px;
+}
+
+// footer
