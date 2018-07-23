@@ -8,20 +8,12 @@
 
 @font-face {
     font-family: 'Teko-Regular';
-<<<<<<< HEAD
-    src: url('font/Teko-Regular.ttf');
-=======
     src: url('fonts/Teko-Regular.ttf');
->>>>>>> origin/anthony
 }
 
 @font-face {
     font-family: 'Merienda-Regular';
-<<<<<<< HEAD
-    src: url('font/Merienda-Regular.ttf');
-=======
     src: url('fonts/Merienda-Regular.ttf');
->>>>>>> origin/anthony
 }
 
 // ----- body -----
@@ -352,7 +344,7 @@ footer {
         a:hover,
         a:focus,
         a:active {
-            color: #00eeff;
+            color: #d0df00;
             transition: color 0.2s linear;
             text-decoration: none;
         }
