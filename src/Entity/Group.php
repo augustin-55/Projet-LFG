@@ -19,7 +19,11 @@ class Group
     private $id;
 
     /**
+<<<<<<< HEAD
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="groups")
+=======
+     * @ORM\ManyToMany(targetEntity="App\Entity\user", inversedBy="groups")
+>>>>>>> origin/Anthony
      */
     private $user_group;
 
