@@ -10,31 +10,32 @@
     </head>
     <body>
 
+        <!-- header -->
+
         {% block header %}
-
             <header >
-            <h1>LFG</h1>
-
-            
+                <h1>LFG</h1>
             </header>
-
         {% endblock %}
+
+        <!-- body - main-content -->
 
         {% block main_content %}
             {% block body %}{% endblock %}
         {% endblock %}
 
+        <!-- footer -->
         
-        {% block footer %}
-        <footer>
-        <h2>FOOTER</h2>
-        {# ----- footer ----- #}
-        </footer>
-        {% endblock %}
+        {% block footer %}{% endblock %}
 
-        <script src="{{ asset('build/js/app.js') }}"></script>
-        {{ tinymce_init() }}
-        {% block javascripts %}{% endblock %}
+        <!-- scripts JS -->
+
+        {% block javascript %}
+        
+            <script src="{{ asset('build/js/app.js') }}"></script>
+            {{ tinymce_init() }}
+        
+        {% endblock %}
         
     </body>
 </html>

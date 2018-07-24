@@ -70,7 +70,7 @@ header {
             a {
                 color: white;
                 text-decoration: none;
-                margin: 0 20px 0 10px;
+                margin: 0 140px 0 10px;
                 font-size: 18px;
             }
 
@@ -79,27 +79,6 @@ header {
             a:active {
                 color: #eeff00;
                 transition: color 0.2s linear;
-            }
-        }
-
-        // --- input search - header ---
-
-        .search-input-div {
-            margin: 0 20px;
-
-            .submit-search-btn {
-                background-color: #1d1d1d;
-                color: white;
-                border: 1px solid black;
-                border-radius: 5px 0 0 5px;
-            }
-
-            .search-input {
-                background-color: #1d1d1d;
-                color: white;
-                border: 1px solid black;
-                border-radius: 0 5px 5px 0;
-                font-size: 18px;
             }
         }
     }
