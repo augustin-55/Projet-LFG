@@ -16,10 +16,11 @@ class UserController extends Controller
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
+        $groupes = $em->getRepository(Groupe::class)->findall();
 
         return $this->render('index.html.twig', 
         [
-            
+            'groupes' => $groupes,
         ]
     );
     }

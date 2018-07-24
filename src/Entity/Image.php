@@ -125,4 +125,14 @@ class Image
         }
     }
 
+    public function __toString()
+    {
+        return 'uploads/' . $this->path;
+    }
+
+    public function getWebPath()
+    {
+        return 'uploads/' . $this->path;
+    }
+
 }

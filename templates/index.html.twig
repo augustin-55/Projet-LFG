@@ -18,9 +18,14 @@
 
         <div class="header-menu">
             <div class="user-menu-header">
-                <img src="{{ asset('images/avatar2.png') }}" alt="avatar" class="userPhoto" >
 
-                <a href="{{ path('profile') }}">Jean</a>
+                {% if app.user.avatar.path is not empty %}
+                    <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto" >
+                {% else %}
+                    <img src="{{ asset('images/avatar2.png') }}" alt="avatar default">
+                {% endif %}
+
+                <a href="{{ path('profile') }}">{{ app.user.username }} </a>
             </div>
         </div>
     </header>
@@ -112,15 +117,19 @@
                 <hr>
                 <div class="affichage-groupes-section">
 
+                    {% for groupe in groupes %}
                     <div class="groupe-affichage">
                         <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
                         <div class="groupe-part-right">
-                            <p>nom</p>
-                            <a href="#" class="btn btn-primary btn-rejoindre">
+                            <p>{{ groupe.name }}</p>
+                            <small>{{ groupe.userGroupe|length }} joueur(s)</small>
+                            <br>
+                            <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-rejoindre">
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
                     </div>
+                    {% endfor %}
 
                 </div>
             </section>
