@@ -242,12 +242,15 @@ header {
 
     .content-amis {
         display: none;
-        background-color: #1d1d1d;
         width: 80%;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 10px;
 
         .section-content-amis {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
             
             h2 {
                 text-align: center;
@@ -262,15 +265,16 @@ header {
             }
 
             .liste-amis {
-                border: 1px solid black;
                 padding: 10px;
                 display: flex;
-                justify-content: space-between;
                 flex-wrap: wrap;
+                justify-content: space-around;
 
                 .amis {
                     display: flex;
                     align-items: center;
+                    margin-bottom: 30px;
+                    margin-right: 10px;
 
                     .avatar {
                         border-radius: 5px;
@@ -292,12 +296,15 @@ header {
 
     .content-groupes {
         display: none;
-        background-color: #1d1d1d;
         width: 80%;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 10px;
 
         .section-content-groupes {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
             
             h2 {
                 text-align: center;
@@ -310,17 +317,48 @@ header {
                 width: 70%;
                 background-color: white;
             }
+
+            .affichage-groupes {
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                .groupe {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 50px;
+                    margin-right: 20px;
+    
+                    .avatar {
+                        border-radius: 100%;
+                        background-color: grey;
+                        width: 100px;
+                        height: 100px;
+                        margin-right: 10px;
+                    }
+    
+                    .nom {
+                        color: white;
+                        font-size: 20px;
+                        font-family: 'Teko-Regular';
+                    }
+                }
+            }
         }
     }
 
     .content-messages {
         display: none;
-        background-color: #1d1d1d;
         width: 80%;
-        margin: 20px auto;
+        margin: 0 auto;
         padding: 10px;
 
         .section-content-messages {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
             
             h2 {
                 text-align: center;

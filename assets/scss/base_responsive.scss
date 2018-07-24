@@ -5,6 +5,8 @@
 .main-container-section {
     flex-direction: column;
 
+    // colonne gauche : menu principal
+
     .main-menu {
         display: flex;
         justify-content: center;
@@ -16,6 +18,8 @@
         margin: 10px auto;
     }
 
+    // colonne milieu : contenus
+
     .content-default {
         width: 100%;
 
@@ -23,6 +27,12 @@
             width: 100%;
         }
     }
+
+    .content-milieu {
+        margin: 20px auto;
+    }
+
+    // colonne droite : amis connectés
 
     .main-friends {
         display: flex;
