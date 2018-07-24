@@ -17,12 +17,9 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $groupes = $em->getRepository(Groupe::class)->findAll();
-        $users = $em->getRepository(Groupe::class)->findAll();
-
         return $this->render('index.html.twig', 
         [
-            'groupes' => $groupes,
+            
         ]
     );
     }

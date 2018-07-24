@@ -12,8 +12,8 @@
 }
 
 @font-face {
-    font-family: 'Merienda-Regular';
-    src: url('fonts/Merienda-Regular.ttf');
+    font-family: 'NewMagnetic-Regular';
+    src: url('fonts/NewMagnetic-Regular.otf');
 }
 
 // ----- body -----
@@ -175,7 +175,7 @@ header {
                 text-align: center;
                 margin: 10px 0;
                 text-shadow: 2px 2px 3px #1d1d1d;
-                font-family: 'Merienda-Regular';
+                font-family: 'NewMagnetic-Regular';
             }
 
             hr {
@@ -187,6 +187,7 @@ header {
                 display: flex;
                 justify-content: space-between;
                 margin: 20px 0;
+                overflow: auto;
 
                 .groupe-affichage {
                     border: 1px solid black;
@@ -195,6 +196,7 @@ header {
                     padding: 5px 10px;
                     width: 200px;
                     border-radius: 5px;
+                    margin-right: 10px;
 
                     img {
                         width: 100px;
@@ -256,7 +258,7 @@ header {
                 text-align: center;
                 color: white;
                 font-size: 26px;
-                font-family: 'Merienda-Regular';
+                font-family: 'NewMagnetic-Regular';
             }
 
             hr {
@@ -285,8 +287,8 @@ header {
                     }
 
                     .username {
-                        color: white;
-                        font-size: 20px;
+                        color: #00f000;
+                        font-size: 18px;
                         font-family: 'Teko-Regular';
                     }
                 }
@@ -310,7 +312,7 @@ header {
                 text-align: center;
                 color: white;
                 font-size: 26px;
-                font-family: 'Merienda-Regular';
+                font-family: 'NewMagnetic-Regular';
             }
 
             hr {
@@ -339,8 +341,8 @@ header {
                     }
     
                     .nom {
-                        color: white;
-                        font-size: 20px;
+                        color: #00f000;
+                        font-size: 18px;
                         font-family: 'Teko-Regular';
                     }
                 }
@@ -364,7 +366,7 @@ header {
                 text-align: center;
                 color: white;
                 font-size: 26px;
-                font-family: 'Merienda-Regular';
+                font-family: 'NewMagnetic-Regular';
             }
 
             hr {
