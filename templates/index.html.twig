@@ -180,12 +180,28 @@
             <section class="section-content-groupes">
                 <h2>Mes groupes</h2>
                 <hr>
-                <div class="affichage-groupes">  
+                <div class="affichage-groupes">
+
+                    {% for groupe in groupes %}
 
                     <div class="groupe">
-                        <div class="avatar"></div>
-                        <div class="nom">Nom</div>
+
+                        {% if groupe.icon is not empty %}
+                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe" class="avatar">
+                        {% else %}
+                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar">
+                        {% endif %}
+
+                        <div class="part-right text-center">
+                            <div class="nom">{{ groupe.name }}</div>
+                            <br>
+                            <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-removeJoin">
+                                <i class="fas fa-minus"></i>
+                            </a>
+                        </div>
                     </div>
+                        
+                    {% endfor %} 
 
                 </div>
             </section>

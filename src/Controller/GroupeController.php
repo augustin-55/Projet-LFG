@@ -22,4 +22,14 @@ class GroupeController extends Controller
 
         return $this->redirectToRoute('app');
     }
+
+    /**
+     * @Route("/removeJoin/{id}", name="removeJoin")
+     */
+    public function removeJoin(Groupe $groupe)
+    {
+        
+
+        return $this->redirectToRoute('app');
+    }
 }

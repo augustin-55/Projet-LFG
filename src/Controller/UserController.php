@@ -21,13 +21,10 @@ class UserController extends Controller
 
         $users = $em->getRepository(User::class)->findAll();
 
-        $images = $em->getRepository(User::class)->findAll();
-
         return $this->render('index.html.twig', 
         [
             'groupes' => $groupes,
             'users' => $users,
-            'images' => $images
         ]
     );
     }
