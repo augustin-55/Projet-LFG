@@ -148,12 +148,16 @@
             <section class="section-content-membres">
                 <h2>Membres du site</h2>
                 <hr>
-                <div class="liste-amis">
+                <div class="liste-membres">
 
-                    <div class="amis">
-                        <div class="avatar"></div>
-                        <div class="username">Username</div>
+                    {% for user in users %}
+
+                    <div class="membre">
+                        <img src="" alt="avatar de l'utilisateur" class="userPhoto" >
+                        <div class="username">{{ user.username }}</div>
                     </div>
+                        
+                    {% endfor %}
 
                 </div>
             </section>

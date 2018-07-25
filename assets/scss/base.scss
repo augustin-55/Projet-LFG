@@ -249,21 +249,20 @@ header {
                 background-color: white;
             }
 
-            .liste-amis {
+            .liste-membres {
                 padding: 10px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
 
-                .amis {
+                .membre {
                     display: flex;
                     align-items: center;
                     margin-bottom: 30px;
                     margin-right: 10px;
 
-                    .avatar {
+                    .userPhoto {
                         border-radius: 5px;
-                        background-color: grey;
                         width: 60px;
                         height: 60px;
                         margin-right: 10px;
