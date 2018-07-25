@@ -40,7 +40,7 @@ header {
             margin: 0;
             
             a {
-                color: #00f000;
+                color: $vert-base;
             }
 
             a:hover,
@@ -94,7 +94,7 @@ header {
     // --- colonne gauche : menu body ---
 
     .main-menu {
-        border-right: 1px solid #00f000;
+        border-right: 1px solid $vert-base;
         margin: 0 0 0 5px;
         padding: 0;
         width: 140px;
@@ -216,7 +216,7 @@ header {
                         .btn-rejoindre:hover,
                         .btn-rejoindre:active,
                         .btn-rejoindre:focus {
-                            background-color: #00b800;
+                            background-color: $vert-base;
                             transition: background-color 0.2s linear;
                         }
                     }
@@ -269,7 +269,7 @@ header {
                     }
 
                     .username {
-                        color: #00f000;
+                        color: $vert-base;
                         font-size: 18px;
                         font-family: 'Teko-Regular';
                     }
@@ -316,7 +316,7 @@ header {
                     }
 
                     .username {
-                        color: #00f000;
+                        color: $vert-base;
                         font-size: 18px;
                         font-family: 'Teko-Regular';
                     }
@@ -330,6 +330,70 @@ header {
         width: 80%;
         margin: 0 auto;
         padding: 10px;
+
+        .section-add-groupes {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
+
+            h2 {
+                text-align: center;
+                color: white;
+                font-size: 26px;
+                font-family: 'NewMagnetic-Regular';
+            }
+
+            hr {
+                width: 70%;
+                background-color: white;
+            }
+
+            .ajout-groupe {
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                .formulaire-ajout-groupe {
+
+                    .input-form {
+                        margin: 10px auto;
+                        width: 300px;
+                        border: none;
+                        border-bottom: 1px solid $vert-base;
+                        background-color: #1d1d1d;
+                        color: white;
+                        font-size: 18px;
+                        font-family: 'Teko-Regular';
+                    }
+
+                    .submit-form {
+                        text-align: center;
+                        margin-top: 10px;
+
+                        input {
+                            border: 1px solid $vert-base;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            font-family: 'Teko-Regular';
+                            background-color: #1d1d1d;
+                            color: white;
+                            padding: 2px 10px;
+                            text-align: center;
+                        }
+
+                        input:hover,
+                        input:focus,
+                        input:active {
+                            background-color: #0c0c0c;
+                            color: $vert-base;
+                            transition: all 0.4s ease;
+                        }
+                    }
+                }
+            }
+        }
 
         .section-content-groupes {
             width: 95%;
@@ -370,7 +434,7 @@ header {
                     }
     
                     .nom {
-                        color: #00f000;
+                        color: $vert-base;
                         font-size: 18px;
                         font-family: 'Teko-Regular';
                     }
@@ -392,7 +456,7 @@ header {
                     .btn-removeJoin:hover,
                     .btn-removeJoin:active,
                     .btn-removeJoin:focus {
-                        background-color: #00b800;
+                        background-color: $vert-base;
                         transition: background-color 0.2s linear;
                     }
                 }
@@ -491,7 +555,7 @@ header {
     // --- colonne droite : amis ---
 
     .main-friends {
-        border-left: 1px solid #00f000;
+        border-left: 1px solid $vert-base;
         margin: 0 5px 0 0;
         width: 140px;
         padding-left: 5px;
@@ -501,7 +565,7 @@ header {
             font-family: 'Teko-Regular';
             text-align: center;
             margin: 10px 0 20px 0;
-            color: #00f000;
+            color: $vert-base;
         }
 
         .friend-div {
@@ -554,7 +618,7 @@ footer {
         padding: 0 20px;
 
         a {
-            color: #00f000;
+            color: $vert-base;
         }
 
         a:hover,

@@ -28,7 +28,11 @@ class GroupeController extends Controller
      */
     public function removeJoin(Groupe $groupe)
     {
-        
+        $user = $this->getUser();
+        $user->removeGroupe($groupe);
+        $em = $this->getdoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
 
         return $this->redirectToRoute('app');
     }

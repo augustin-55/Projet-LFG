@@ -22,7 +22,7 @@
                 {% if app.user.avatar.path is not empty %}
                     <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto" >
                 {% else %}
-                    <img src="{{ asset('images/avatar2.png') }}" alt="avatar default">
+                    <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut">
                 {% endif %}
 
                 <a href="#" class="btn-content btn-content-profil"> {{ app.user.username }} </a>
@@ -153,7 +153,13 @@
                     {% for user in users %}
 
                     <div class="membre">
-                        <img src="" alt="avatar de l'utilisateur" class="userPhoto" >
+                        {% if user.avatar.path is not empty %}
+                            <img src="{{ user.avatar }}" alt="avatar de l'utilisateur" class="userPhoto">
+                        {% else %}
+                            <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut" class="userPhoto">
+                        {% endif %}
+
+                        
                         <div class="username">{{ user.username }}</div>
                     </div>
                         
@@ -182,7 +188,7 @@
                 <hr>
                 <div class="affichage-groupes">
 
-                    {% for groupe in groupes %}
+                    {% for groupe in app.user.groupes %}
 
                     <div class="groupe">
 
@@ -195,7 +201,7 @@
                         <div class="part-right text-center">
                             <div class="nom">{{ groupe.name }}</div>
                             <br>
-                            <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-removeJoin">
+                            <a href="{{ path('removeJoin', {'id': groupe.id}) }}" class="btn btn-primary btn-removeJoin">
                                 <i class="fas fa-minus"></i>
                             </a>
                         </div>
@@ -206,11 +212,34 @@
                 </div>
             </section>
 
-            <section class="add-groupe">
-                <h2>Ajouter un groupe</h2>
+            <br>
+
+            <section class="section-add-groupes">
+                <h2>Créer un groupe</h2>
                 <hr>
                 <div class="ajout-groupe">
-
+                    <form action="#" method="POST" class="formulaire-ajout-groupe">
+                        <input type="text" name="name" placeholder="Nom du groupe" class="input-form">
+                        <br>
+                        <select name="" class="input-form">
+                            <option value="" selected>Sélectionnez un jeu</option>
+                            <option value="overwatch">Overwatch</option>
+                            <option value="counter-strike">Counter Strike</option>
+                            <option value="league-of-legends">League of legends</option>
+                            <option value="rainbow-six-siege">Rainbow Six : Siege</option>
+                            <option value="fortnite">Fortnite</option>
+                            <option value="battlerite">Battlerite</option>
+                            <option value="rocket-league">Rocket League</option>
+                        </select>
+                        <br>
+                        <input type="text" name="description" placeholder="Description" class="input-form">
+                        <br>
+                        <input type="file" name="icon" class="input-form" accept="image/*">
+                        <br>
+                        <div class="submit-form">
+                            <input type="submit" value="Créer">
+                        </div>
+                    </form>
                 </div>
             </section>
         </div>
@@ -249,6 +278,8 @@
         <div class="main-friends">
 
             <h2>Membres connectés</h2>
+
+
 
             <div class="friend-div">
                 <div class="friendPhoto">

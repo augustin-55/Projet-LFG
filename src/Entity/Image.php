@@ -127,7 +127,7 @@ class Image
 
     public function __toString()
     {
-        return 'uploads/' . $this->path;
+        return $this->getWebPath();
     }
 
     public function getWebPath()
