@@ -25,7 +25,7 @@
                     <img src="{{ asset('images/avatar2.png') }}" alt="avatar default">
                 {% endif %}
 
-                <a href="{{ path('profile') }}">{{ app.user.username }} </a>
+                <a href="#" class="btn-content btn-content-profil"> {{ app.user.username }} </a>
             </div>
         </div>
     </header>
@@ -48,7 +48,7 @@
             <li>
                 <a href="#" class="btn-content btn-content-amis">
                     <i class="fas fa-user"></i>
-                    <p>Suivre</p>
+                    <p>Membres</p>
                 </a>
             </li>
             <li>
@@ -118,8 +118,15 @@
                 <div class="affichage-groupes-section">
 
                     {% for groupe in groupes %}
+
                     <div class="groupe-affichage">
-                        <img src="{{ asset('images/groupe.jpg') }}" alt="logo-groupe">
+
+                        {% if groupe.icon is not empty %}
+                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe">
+                        {% else %}
+                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut">
+                        {% endif %}
+                        
                         <div class="groupe-part-right">
                             <p>{{ groupe.name }}</p>
                             <small>{{ groupe.userGroupe|length }} joueur(s)</small>
@@ -129,6 +136,7 @@
                             </a>
                         </div>
                     </div>
+
                     {% endfor %}
 
                 </div>
@@ -137,8 +145,21 @@
         </div>
 
         <div class="content-milieu content-amis">
-            <section class="section-content-amis">
+            <section class="section-content-membres">
                 <h2>Membres du site</h2>
+                <hr>
+                <div class="liste-amis">
+
+                    <div class="amis">
+                        <div class="avatar"></div>
+                        <div class="username">Username</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section-content-amis">
+                <h2>Personnes suivies</h2>
                 <hr>
                 <div class="liste-amis">
 
@@ -155,12 +176,20 @@
             <section class="section-content-groupes">
                 <h2>Mes groupes</h2>
                 <hr>
-                <div class="affichage-groupes">
-                    
+                <div class="affichage-groupes">  
+
                     <div class="groupe">
                         <div class="avatar"></div>
                         <div class="nom">Nom</div>
                     </div>
+
+                </div>
+            </section>
+
+            <section class="add-groupe">
+                <h2>Ajouter un groupe</h2>
+                <hr>
+                <div class="ajout-groupe">
 
                 </div>
             </section>
@@ -170,6 +199,28 @@
             <section class="section-content-messages">
                 <h2>Messagerie - Chat en ligne</h2>
                 <hr>
+            </section>
+        </div>
+        
+        <div class="content-milieu content-profil">
+            <section class="section-content-profil">
+                <h2>Votre profil</h3>
+                <hr>
+                <br>
+                <ul>
+                    <li>Pseudo : {{ app.user.username }}</li>
+                    <li>Adresse e-mail : {{ app.user.email }}</li>
+                </ul>
+
+                <br>
+
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <p class="connected">Utilisateur connecté</p>
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn-deconnect">Se déconnecter</a>
+                {% else %}
+                    <p class="notConnected">Utilisateur non connecté</p>
+                {% endif %}
+
             </section>
         </div>
 

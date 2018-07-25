@@ -231,6 +231,53 @@ header {
         margin: 0 auto;
         padding: 10px;
 
+        .section-content-membres {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
+            
+            h2 {
+                text-align: center;
+                color: white;
+                font-size: 26px;
+                font-family: 'NewMagnetic-Regular';
+            }
+
+            hr {
+                width: 70%;
+                background-color: white;
+            }
+
+            .liste-amis {
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+                .amis {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 30px;
+                    margin-right: 10px;
+
+                    .avatar {
+                        border-radius: 5px;
+                        background-color: grey;
+                        width: 60px;
+                        height: 60px;
+                        margin-right: 10px;
+                    }
+
+                    .username {
+                        color: #00f000;
+                        font-size: 18px;
+                        font-family: 'Teko-Regular';
+                    }
+                }
+            }
+        }
+
         .section-content-amis {
             width: 95%;
             margin: auto;
@@ -355,6 +402,68 @@ header {
             hr {
                 width: 70%;
                 background-color: white;
+            }
+        }
+    }
+
+    .content-profil {
+        display: none;
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px;
+
+        .section-content-profil {
+            width: 95%;
+            margin: auto;
+            background-color: #1d1d1d;
+            padding: 10px;
+
+            h2 {
+                color: white;
+                text-align: center;
+                font-family: 'NewMagnetic-Regular';
+                font-size: 26px;
+            }
+
+            hr {
+                width: 70%;
+                background-color: white;
+            }
+
+            ul {
+                color: white;
+                font-family: 'Teko-Regular';
+                font-size: 18px;
+            }
+
+            .connected {
+                color: $vert;
+                font-family: 'Teko-Regular';
+                font-size: 18px;
+            }
+
+            .notConnected {
+                color: red;
+                font-family: 'Teko-Regular';
+                font-size: 18px;
+            }
+
+            .btn-deconnect {
+                color: $vert;
+                background-color: #666666;
+                border-radius: 10px;   
+                padding: 1px 6px;
+                border: 2px outset buttonface;
+                font-family: 'Teko-Regular';
+                font-size: 18px;
+            }
+
+            .btn-deconnect:hover, 
+            .btn-deconnect:active,
+            .btn-deconnect:focus {
+                text-decoration: none;
+                transition: all 0.4s ease;
+                background-color: #1a1a1a;
             }
         }
     }

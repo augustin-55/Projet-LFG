@@ -58,6 +58,11 @@ $(document).ready(function() {
                 $('.content-milieu').hide();
                 $('.content-messages').fadeIn();
                 break;
+
+            case 'profil':
+                $('.content-milieu').hide();
+                $('.content-profil').fadeIn();
+                break;
         }
 
     });
