@@ -67,4 +67,8 @@ $(document).ready(function() {
 
     });
 
+    // affichage joueurs d'un groupes
+
+    
+
 });

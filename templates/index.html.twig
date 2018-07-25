@@ -121,20 +121,27 @@
 
                     <div class="groupe-affichage">
 
-                        {% if groupe.icon is not empty %}
+                        <div class="group-part">
+                            {% if groupe.icon is not empty %}
                             <img src="{{ asset(groupe.icon) }}" alt="logo-groupe">
-                        {% else %}
-                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut">
-                        {% endif %}
-                        
-                        <div class="groupe-part-right">
-                            <p>{{ groupe.name }}</p>
-                            <small>{{ groupe.userGroupe|length }} joueur(s)</small>
-                            <br>
-                            <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-rejoindre">
-                                <i class="fas fa-plus"></i>
-                            </a>
+                            {% else %}
+                                <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut">
+                            {% endif %}
+                            
+                            <div class="groupe-part-right">
+                                <p>{{ groupe.name }}</p>
+                                <small class="nb-joueurs-link">{{ groupe.userGroupe|length }} joueur(s)</small>
+                                <br>
+                                <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-rejoindre">
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
                         </div>
+
+                        <div class="affichage-membres d-none">
+                            <p>{{ groupe.membre }}</p>
+                        </div>
+
                     </div>
 
                     {% endfor %}
