@@ -69,9 +69,17 @@ $(document).ready(function() {
 
     // affichage joueurs d'un groupes
 
-    $('.nb-joueurs-link').click(function() {
+    $('.nb-joueurs-link').click(function(e) {
 
         $('.affichage-membres').show();
+        e.stopPropagation();
+
+    });
+
+    $(document).click(function(e) {
+
+        $('.affichage-membres').hide();
+        e.stopPropagation();
 
     });
 
