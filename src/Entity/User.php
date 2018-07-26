@@ -32,27 +32,30 @@ class User extends BaseUser
 
     /**
      * Many Users have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="myFriends")
-     */
-    private $friendsWithMe;
-
-    /**
-     * Many Users have many Users.
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="friendsWithMe")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="friendFollowMe", cascade="all")
      * @ORM\JoinTable(name="friends",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="friend_user_id", referencedColumnName="id")}
      *      )
      */
-    private $myFriends;
+    private $friendFollow;
 
     /**
+     * Many Users have many Users.
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="friendFollow", cascade="all")
+    
+     */
+    private $friendFollowMe;
+
+    /**
+     * Messages envoyées
      * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user")
      */
     private $messages;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user")
+     * Messages reçus
+     * @ORM\ManyToMany(targetEntity="App\Entity\Message", mappedBy="destinataires")
      */
     private $usermessages;
 
@@ -64,8 +67,8 @@ class User extends BaseUser
     
     public function __construct()
     {
-        $this->friendsWithMe = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->myFriends = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->friendFollow = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->friendFollowMe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->groupes = new ArrayCollection();
     }
@@ -137,9 +140,9 @@ class User extends BaseUser
     /**
      * Get many Users have Many Users.
      */ 
-    public function getFriendsWithMe()
+    public function getfriendFollow()
     {
-        return $this->friendsWithMe;
+        return $this->friendFollow;
     }
 
     /**
@@ -147,9 +150,9 @@ class User extends BaseUser
      *
      * @return  self
      */ 
-    public function setFriendsWithMe($friendsWithMe)
+    public function setfriendFollow($friendFollow)
     {
-        $this->friendsWithMe = $friendsWithMe;
+        $this->friendFollow = $friendFollow;
 
         return $this;
     }
@@ -157,9 +160,9 @@ class User extends BaseUser
     /**
      * Get many Users have many Users.
      */ 
-    public function getMyFriends()
+    public function getfriendFollowMe()
     {
-        return $this->myFriends;
+        return $this->friendFollowMe;
     }
 
     /**
@@ -167,11 +170,30 @@ class User extends BaseUser
      *
      * @return  self
      */ 
-    public function setMyFriends($myFriends)
+    public function setfriendFollowMe($friendFollowMe)
     {
-        $this->myFriends = $myFriends;
+        $this->friendFollowMe = $friendFollowMe;
 
         return $this;
+    }
+
+    public function addFollow(User $follow)
+    {
+        if (!$this->friendFollow->contains($follow)) {
+            $this->friendFollow[] = $follow;
+        }
+    }
+
+    public function removeFollow(User $follow)
+    {
+        if ($this->friendFollow->contains($follow)) {
+            $this->friendFollow->removeElement($follow);
+        }
+    }
+
+    public function hasFollow(User $follow)
+    {
+        return $this->friendFollow->contains($follow);
     }
 
     /**

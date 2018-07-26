@@ -24,22 +24,18 @@ class Groupe
     private $user_groupe;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $groupe_game;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
-    private $membre;
+    private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Image", cascade="all")
      */
     private $icon;
 
@@ -66,12 +62,12 @@ class Groupe
     /**
      * @return Collection|user[]
      */
-    public function getUserGroupe(): Collection
+    public function getUserGroupe() : Collection
     {
         return $this->user_groupe;
     }
 
-    public function addUserGroupe(user $userGroupe): self
+    public function addUserGroupe(user $userGroupe) : self
     {
         if (!$this->user_groupe->contains($userGroupe)) {
             $this->user_groupe[] = $userGroupe;
@@ -80,7 +76,7 @@ class Groupe
         return $this;
     }
 
-    public function removeUserGroupe(user $userGroupe): self
+    public function removeUserGroupe(user $userGroupe) : self
     {
         if ($this->user_groupe->contains($userGroupe)) {
             $this->user_groupe->removeElement($userGroupe);
@@ -89,74 +85,82 @@ class Groupe
         return $this;
     }
 
-    public function getGroupeGame(): ?int
-    {
-        return $this->groupe_game;
-    }
-
-    public function setGroupeGame(int $groupe_game): self
-    {
-        $this->groupe_game = $groupe_game;
-
-        return $this;
-    }
-
-    public function getName(): ?string
+    public function getName() : ? string
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name) : self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getMembre(): ?string
+    public function getMembre() : ? string
     {
         return $this->membre;
     }
 
-    public function setMembre(string $membre): self
+    public function setMembre(string $membre) : self
     {
         $this->membre = $membre;
 
         return $this;
     }
 
-    public function getIcon(): ?string
+    public function getIcon()
     {
         return $this->icon;
     }
 
-    public function setIcon(string $icon): self
+    public function setIcon(Image $icon) : self
     {
         $this->icon = $icon;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription() : ? string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $description) : self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function getGamegroupe(): ?Game
+    public function getGamegroupe() : ? Game
     {
         return $this->gamegroupe;
     }
 
-    public function setGamegroupe(?Game $gamegroupe): self
+    public function setGamegroupe(? Game $gamegroupe) : self
     {
         $this->gamegroupe = $gamegroupe;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

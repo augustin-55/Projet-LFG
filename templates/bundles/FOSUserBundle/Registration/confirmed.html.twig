@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %} {% trans_default_domain 'FOSUserBundle' %} 
+{% block body %}
+<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+{% if targetUrl %}
+<p>
+    <a class="btn btn-primary" href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a>
+</p>
+{% endif %} {% endblock %}

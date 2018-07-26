@@ -1,147 +1,143 @@
-{% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %} {% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('build/css/base.css') }}" />
+<link rel="stylesheet" href="{{ asset('build/css/base_responsive.css') }}" media="all and (max-width: 890px)">
+<link rel="stylesheet" href="{{ asset('build/css/base_responsive_smartphone.css') }}" media="all and (max-width: 500px)"> {% endblock %} {# ----- header ----- #} {% block header %}
+<header>
+    <div class="title-header">
+        <h1>
+            <a href="{{ path('app') }}">LFG</a>
+        </h1>
+    </div>
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/base.css') }}" />
-    <link rel="stylesheet" href="{{ asset('build/css/base_responsive.css') }}" media="all and (max-width: 890px)">
-    <link rel="stylesheet" href="{{ asset('build/css/base_responsive_smartphone.css') }}" media="all and (max-width: 500px)">
-{% endblock %}
+    <div class="header-menu">
+        <div class="user-menu-header">
 
-{# ----- header ----- #}
+            {% if app.user.avatar.path is not empty %}
+            <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto"> {% else %}
+            <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut"> {% endif %}
 
-{% block header %}
-    <header>
-        <div class="title-header">
-            <h1>
-                <a href="{{ path('app') }}">LFG</a>
-            </h1>
+            <a href="#" class="btn-content btn-content-profil"> {{ app.user.username }} </a>
         </div>
+    </div>
+</header>
+{% endblock %} {# ----- body ----- #} {% block body %}
+<main class="main-container-section">
 
-        <div class="header-menu">
-            <div class="user-menu-header">
+    <!-- colonne gauche : menu du body -->
 
-                {% if app.user.avatar.path is not empty %}
-                    <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto" >
-                {% else %}
-                    <img src="{{ asset('images/avatar2.png') }}" alt="avatar default">
-                {% endif %}
+    <ul class="main-menu">
+        <li>
+            <a href="#" class="btn-content btn-content-default">
+                <i class="fas fa-home"></i>
+                <p>Accueil</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-amis">
+                <i class="fas fa-user"></i>
+                <p>Membres</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-groupes">
+                <i class="fas fa-users"></i>
+                <p>Groupes</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="btn-content btn-content-messages">
+                <i class="fas fa-comments"></i>
+                <p>Messages</p>
+            </a>
+        </li>
+    </ul>
 
-                <a href="#" class="btn-content btn-content-profil"> {{ app.user.username }} </a>
-            </div>
-        </div>
-    </header>
-{% endblock %} 
+    <!-- colonne milieu : contenu de la page -->
 
-{# ----- body ----- #}
+    <div class="content-milieu content-default">
 
-{% block body %}
-    <main class="main-container-section">
-
-        <!-- colonne gauche : menu du body -->
-
-        <ul class="main-menu">
-            <li>
-                <a href="#" class="btn-content btn-content-default">
-                    <i class="fas fa-home"></i>
-                    <p>Accueil</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn-content btn-content-amis">
-                    <i class="fas fa-user"></i>
-                    <p>Membres</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn-content btn-content-groupes">
-                    <i class="fas fa-users"></i>
-                    <p>Groupes</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="btn-content btn-content-messages">
-                    <i class="fas fa-comments"></i>
-                    <p>Messages</p>
-                </a>
-            </li>
-        </ul>
-
-        <!-- colonne milieu : contenu de la page -->
-
-        <div class="content-milieu content-default">
-
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('images/counterstrike.png') }}" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/battlerite.jpg') }}" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/fortnite.jpg') }}" alt="Third slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/overwatch.jpg') }}" alt="Fourth slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/lol.jpg') }}" alt="Fifth slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/rocketleague.jpg') }}" alt="Sixth slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('images/rainbowsix.jpg') }}" alt="Seventh slide">
-                    </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ asset('images/counterstrike.png') }}" alt="First slide">
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Précédent</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Suivant</span>
-                </a>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/battlerite.jpg') }}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/fortnite.jpg') }}" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/overwatch.jpg') }}" alt="Fourth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/lol.jpg') }}" alt="Fifth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/rocketleague.jpg') }}" alt="Sixth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ asset('images/rainbowsix.jpg') }}" alt="Seventh slide">
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Précédent</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Suivant</span>
+            </a>
+        </div>
 
-            <section class="section-content-default">
-                <h3>Groupes</h3>
-                <hr>
-                <div class="affichage-groupes-section">
-
-                    {% for groupe in groupes %}
-
-                    <div class="groupe-affichage">
-
+        <section class="section-content-default">
+            <h3>Groupes</h3>
+            <hr>
+            <div class="affichage-groupes-section">
+        
+                {% for groupe in groupes %}
+        
+                <div class="groupe-affichage">
+        
+                    <div class="group-part">
                         {% if groupe.icon is not empty %}
-                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe">
-                        {% else %}
-                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut">
-                        {% endif %}
-                        
+                        <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe"> {% else %}
+                        <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut"> {% endif %}
+        
                         <div class="groupe-part-right">
                             <p>{{ groupe.name }}</p>
-                            <small>{{ groupe.userGroupe|length }} joueur(s)</small>
+                            <small class="nb-joueurs-link">{{ groupe.userGroupe|length }} joueur(s)</small>
                             <br>
                             <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-rejoindre">
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
                     </div>
-
-                    {% endfor %}
-
+        
+                    <div class="affichage-membres">
+        
+                        {% for user in groupe.userGroupe %}
+                        <h3>Membres :</h3>
+                        <p>{{ user.username }}</p>
+                        {% endfor %}
+        
+                    </div>
+        
                 </div>
-            </section>
-
+        
+                {% endfor %}
+        
+            </div>
+        </section>
         </div>
 
         <div class="content-milieu content-amis">
@@ -150,29 +146,23 @@
                 <hr>
                 <div class="liste-membres">
 
-                    {% for user in users %}
+                    {% for user in users if app.user.id != user.id and not app.user.hasFollow(user) %}
 
-                    <div class="membre">
+                    <div class="membre unfollow" data-id="{{ user.id }}">
                         <img src="" alt="avatar de l'utilisateur" class="userPhoto" >
                         <div class="username">{{ user.username }}</div>
+                        <a href="{{ path('app_friend_follow', {'id': user.id}) }}" class="follow-btn btn btn-secondary">Suivre</a>
                     </div>
                         
                     {% endfor %}
+
+                     
 
                 </div>
             </section>
 
             <section class="section-content-amis">
-                <h2>Personnes suivies</h2>
-                <hr>
-                <div class="liste-amis">
-
-                    <div class="amis">
-                        <div class="avatar"></div>
-                        <div class="username">Username</div>
-                    </div>
-
-                </div>
+                {{ render(controller('App\\Controller\\FriendController::show'))}}
             </section>
         </div>
 
@@ -181,44 +171,65 @@
                 <h2>Mes groupes</h2>
                 <hr>
                 <div class="affichage-groupes">
-
-                    {% for groupe in groupes %}
-
+            
+                    {% for groupe in app.user.groupes %}
+            
                     <div class="groupe">
-
+            
                         {% if groupe.icon is not empty %}
-                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe" class="avatar">
-                        {% else %}
-                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar">
-                        {% endif %}
-
+                        <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe" class="avatar"> {% else %}
+                        <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar"> {% endif %}
+            
                         <div class="part-right text-center">
                             <div class="nom">{{ groupe.name }}</div>
                             <br>
-                            <a href="{{ path('join', {'id': groupe.id}) }}" class="btn btn-primary btn-removeJoin">
+                            <a href="{{ path('removeJoin', {'id': groupe.id}) }}" class="btn btn-primary btn-removeJoin">
                                 <i class="fas fa-minus"></i>
                             </a>
                         </div>
                     </div>
-                        
-                    {% endfor %} 
-
+            
+                    {% endfor %}
+            
                 </div>
             </section>
-
-            <section class="add-groupe">
-                <h2>Ajouter un groupe</h2>
+            <br>
+            
+            <section class="section-add-groupes">
+                <h2>Créer un groupe</h2>
                 <hr>
                 <div class="ajout-groupe">
-
+                    {#
+                    <form action="#" method="POST" class="formulaire-ajout-groupe">
+                        <input type="text" name="name" placeholder="Nom du groupe" class="input-form">
+                        <br>
+                        <select name="" class="input-form">
+                            <option value="" selected>Sélectionnez un jeu</option>
+                            <option value="overwatch">Overwatch</option>
+                            <option value="counter-strike">Counter Strike</option>
+                            <option value="league-of-legends">League of legends</option>
+                            <option value="rainbow-six-siege">Rainbow Six : Siege</option>
+                            <option value="fortnite">Fortnite</option>
+                            <option value="battlerite">Battlerite</option>
+                            <option value="rocket-league">Rocket League</option>
+                        </select>
+                        <br>
+                        <input type="text" name="description" placeholder="Description" class="input-form">
+                        <br>
+                        <input type="file" name="icon" class="input-form" accept="image/*">
+                        <br>
+                        <div class="submit-form">
+                            <input type="submit" value="Créer">
+                        </div>
+                    </form>#} {{ render(controller('App\\Controller\\GroupeController::add', {'request' : app.request})) }}
                 </div>
-            </section>
         </div>
 
         <div class="content-milieu content-messages">
             <section class="section-content-messages">
                 <h2>Messagerie - Chat en ligne</h2>
                 <hr>
+                 {{ render(controller( 'App\\Controller\\ChatController::messagerie' ))}}
             </section>
         </div>
         
@@ -244,31 +255,50 @@
             </section>
         </div>
 
-        <!-- colonne droite : personnes connectées -->
-
-        <div class="main-friends">
-
-            <h2>Membres connectés</h2>
-
-            <div class="friend-div">
-                <div class="friendPhoto">
-                    <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
-                </div>
-                <a href="#">Homer</a>
-            </div>
-
+    <div class="content-milieu content-profil">
+        <section class="section-content-profil">
+            <h2>Votre profil</h3>
+                <hr>
+                <br>
+                <ul>
+                    <li>Pseudo : {{ app.user.username }}</li>
+                    <li>Adresse e-mail : {{ app.user.email }}</li>
+                </ul>
+    
+                <br> {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <p class="connected">Utilisateur connecté</p>
+                <a href="{{ path('fos_user_security_logout') }}" class="btn-deconnect">Se déconnecter</a>
+                {% else %}
+                <p class="notConnected">Utilisateur non connecté</p>
+                {% endif %}
+    
+        </section>
+    </div>
+    
+    <!-- colonne droite : personnes connectées -->
+    
+    <div class="main-friends">
+    
+        <h2>Membres connectés</h2>
+    
+    
+    
+        <div class="friend-div">
+            {% if app.user.avatar.path is not empty %}
+            <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto"> {% else %}
+            <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut"> {% endif %}
+    
+            <p> {{ app.user.username }} </p>
         </div>
-
+    
+    </div>
+    
     </main>
-{% endblock %}
-
-{# ----- footer ----- #}
-
-{% block footer %}
+    {% endblock %} {# ----- footer ----- #} {% block footer %}
     <footer>
         <p>Copyright 2018</p>
         <p>
             <a href="#">Mentions légales</a>
         </p>
     </footer>
-{% endblock %}
+    {% endblock %}

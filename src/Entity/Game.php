@@ -52,12 +52,12 @@ class Game
     /**
      * @return Collection|groupe[]
      */
-    public function getGameS(): Collection
+    public function getGameS() : Collection
     {
         return $this->game_s;
     }
 
-    public function addGame(group $game): self
+    public function addGame($game) : self
     {
         if (!$this->game_s->contains($game)) {
             $this->game_s[] = $game;
@@ -67,7 +67,7 @@ class Game
         return $this;
     }
 
-    public function removeGame(group $game): self
+    public function removeGame($game) : self
     {
         if ($this->game_s->contains($game)) {
             $this->game_s->removeElement($game);
@@ -80,24 +80,24 @@ class Game
         return $this;
     }
 
-    public function getName(): ?string
+    public function getName() : ? string
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name) : self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription() : ? string
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $description) : self
     {
         $this->description = $description;
 
@@ -107,12 +107,12 @@ class Game
     /**
      * @return Collection|Gameuser[]
      */
-    public function getGameusers(): Collection
+    public function getGameusers() : Collection
     {
         return $this->gameusers;
     }
 
-    public function addGameuser(Gameuser $gameuser): self
+    public function addGameuser(Gameuser $gameuser) : self
     {
         if (!$this->gameusers->contains($gameuser)) {
             $this->gameusers[] = $gameuser;
@@ -122,7 +122,7 @@ class Game
         return $this;
     }
 
-    public function removeGameuser(Gameuser $gameuser): self
+    public function removeGameuser(Gameuser $gameuser) : self
     {
         if ($this->gameusers->contains($gameuser)) {
             $this->gameusers->removeElement($gameuser);
@@ -133,5 +133,10 @@ class Game
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

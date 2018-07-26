@@ -1,0 +1,18 @@
+<h2>Personnes suivies</h2>
+<div class="user-follow">
+{% for friend in user.friendFollow %}
+<div class="membre follow" data-id="{{ friend.id }}">
+    <img src="" alt="avatar de l'utilisateur" class="userPhoto">
+    <div class="username">{{ friend.username }}</div>
+    <a href="{{ path('app_friend_follow', {'id': friend.id}) }}" class="follow-btn btn btn-secondary">Ne plus suivre</a>
+</div>
+{% endfor %}
+</div>
+
+<h2>Ceux qui me suivent</h2>
+{% for friend in user.friendFollowMe %}
+    <div class="membre followme" data-id="{{ friend.id }}">
+        {{ friend.username }}
+        <a href="{{ path('app_friend_follow', {'id': friend.id}) }}" class="follow-btn btn btn-secondary">Suivre</a>
+    </div>
+{% endfor %}

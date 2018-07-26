@@ -40,12 +40,12 @@ class Image
         return $this->id;
     }
 
-    public function getPath(): ?string
+    public function getPath() : ? string
     {
         return $this->path;
     }
 
-    public function setPath(string $path): self
+    public function setPath(string $path) : self
     {
         $this->path = $path;
 
@@ -56,7 +56,7 @@ class Image
      * Get maxSize = "2M",
      *
      * @return  UploadedFile
-     */ 
+     */
     public function getFile()
     {
         return $this->file;
@@ -68,7 +68,7 @@ class Image
      * @param  UploadedFile  $file  maxSize = "2M",
      *
      * @return  self
-     */ 
+     */
     public function setFile(UploadedFile $file)
     {
         $this->tmpPath = $this->path;
@@ -84,12 +84,12 @@ class Image
      */
     public function generateFileName()
     {
-        if ( is_file($this->getPublicRootDir() . $this->tmpPath) ) // si un fichier existe
+        if (is_file($this->getPublicRootDir() . $this->tmpPath)) // si un fichier existe
         {
             unlink($this->getPublicRootDir() . $this->tmpPath);
         }
 
-        if ( $this->file instanceof UploadedFile ) {
+        if ($this->file instanceof UploadedFile) {
             $this->path = uniqid('image_') . '.' . $this->file->guessExtension();
         }
     }
@@ -105,21 +105,20 @@ class Image
      */
     public function upload()
     {
-        if ( $this->file instanceof UploadedFile ) 
-        {
+        if ($this->file instanceof UploadedFile) {
             $this->file->move(
                 $this->getPublicRootDir(),
                 $this->path
             );
         }
     }
-    
+
     /**
      * @ORM\PostRemove()
      */
     public function removeFile()
     {
-        if ( is_file($this->getPublicRootDir() . $this->path) ) // si un fichier existe
+        if (is_file($this->getPublicRootDir() . $this->path)) // si un fichier existe
         {
             unlink($this->getPublicRootDir() . $this->path);
         }
@@ -127,7 +126,7 @@ class Image
 
     public function __toString()
     {
-        return 'uploads/' . $this->path;
+        return $this->getWebPath();
     }
 
     public function getWebPath()

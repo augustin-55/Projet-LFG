@@ -67,4 +67,62 @@ $(document).ready(function() {
 
     });
 
+    // affichage joueurs d'un groupes
+
+    $('.nb-joueurs-link').click(function (e) {
+
+        $(this).parents('.groupe-affichage').children('.group-part').hide()
+
+        $(this).parents('.groupe-affichage').children('.affichage-membres').show();
+        e.stopPropagation();
+
+    });
+
+    $(document).click(function (e) {
+
+        $('.group-part').show();
+
+        $('.affichage-membres').hide();
+        e.stopPropagation();
+
+    });
+    
+    // Script follow
+    function initFollowBtn()
+    {
+        $('.follow-btn').unbind('click');
+        $('.follow-btn').click(function(e) {
+            e.preventDefault();
+            var $self = $(this);
+            var url = $self.attr('href');
+            $.getJSON(url, {}, function(data) {
+                if (data.isFollow) {
+                    var userId = $self.closest('.membre').attr('data-id');
+                    var $obj = $('.membre.unfollow[data-id="' + userId + '"]');
+                    
+                    $('.membre[data-id="' + userId + '"] .follow-btn').html('Ne plus suivre');
+                    $obj.addClass('follow').removeClass('unfollow');
+                    $obj.remove();
+                    
+                    $('.section-content-amis .user-follow').append($obj);
+                    initFollowBtn();
+                } else {
+                    var userId = $self.closest('.membre').attr('data-id');
+                    var $obj = $('.membre.follow[data-id="' + userId + '"]');
+                    
+                    $obj.addClass('unfollow').removeClass('follow');
+                    $('.membre[data-id="' + userId + '"] .follow-btn').html('Suivre');
+                    $obj.remove();
+                    
+                    $('.liste-membres').append($obj);
+                    initFollowBtn();
+                }
+            });
+        });
+    } 
+
+    initFollowBtn();
+
+    
+
 });

@@ -17,14 +17,15 @@ class Message
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="messages")
+     * Expéditeur
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="usermessages")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="usermessages")
      */
-    private $messages;
+    private $destinataires;
 
 
     /**
@@ -37,21 +38,14 @@ class Message
      */
     private $message;
 
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getUserId(): ?user
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(?user $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
@@ -74,6 +68,46 @@ class Message
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of destinataires
+     */ 
+    public function getDestinataires()
+    {
+        return $this->destinataires;
+    }
+
+    /**
+     * Set the value of destinataires
+     *
+     * @return  self
+     */ 
+    public function setDestinataires($destinataires)
+    {
+        $this->destinataires = $destinataires;
 
         return $this;
     }

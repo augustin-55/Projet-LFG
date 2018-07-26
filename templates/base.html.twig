@@ -12,15 +12,28 @@
 
         <!-- header -->
 
-        {% block header %}
-            <header >
-                <h1>LFG</h1>
-            </header>
+         {% block header %}
+        <header class="head">
+            <div class="logo">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ asset('build/images/logo.png') }}" width="230" height="120" alt="">
+                </a>
+            </div>
+            {#
+            <h1 class="icon-logolfg2"></h1> #}
+        </header>
         {% endblock %}
 
         <!-- body - main-content -->
 
         {% block main_content %}
+         {% for type, messages in app.flashes %} {% for message in messages %}
+        <div class="alert alert-{{ type }} alert-dismissible fade show">{{ message|raw }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %} {% endfor %}
             {% block body %}{% endblock %}
         {% endblock %}
 
@@ -32,7 +45,7 @@
 
         {% block javascript %}
         
-            <script src="{{ asset('build/js/app.js') }}"></script>
+            <script src="{{ asset('build/js/app.js') }}?v=2"></script>
             {{ tinymce_init() }}
         
         {% endblock %}

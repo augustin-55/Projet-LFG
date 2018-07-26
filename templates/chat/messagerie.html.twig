@@ -1,0 +1,30 @@
+<div id="messagerie">
+    
+    <div class="message-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
+
+
+    <div class="messages">
+    {% for message in messagesRecus %}
+        <div class="media">
+            <div class="media-body">
+                <small>{{ message.user.username }}</small>
+                {{ message.message }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for message in messagesEnvoyes %}
+    <div class="media">
+        <div class="media-body">
+            <small>{{ message.user.username }}</small>
+            {{ message.message }}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>

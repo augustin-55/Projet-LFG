@@ -47,4 +47,43 @@ class MessageRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /*public function findLastMessages($user, $lastId=0)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->where('m.user = :user')
+            ->orWhere('m.distinataire = :user')
+            ->setParameter('user', $user);
+        
+        if ($lastId == 0) {// Premier chargement de la page
+            $result = $qb->setMaxResults(5)
+             ->setOrder('m.id', 'DESC')
+             ->getQuery()
+             ->getResult();
+
+            $result = array_reverse($result);
+
+        } else {
+            $result = $qb->andWhere('m.id > :lastId')
+                ->setParameter('lastId', $lastId)
+                ->setOrder('m.id', 'ASC')
+                ->getQuery()
+                ->getResult();
+        }
+
+        return $result;
+
+    }*/
+
+    public function findMessageRecus($user)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->leftJoin('m.destinataires', 'd')
+            ->where('d = :user')
+            ->setParameter('user', $user)
+            ->setMaxResults(30)
+            ->addOrderBy('m.id' ,'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }
