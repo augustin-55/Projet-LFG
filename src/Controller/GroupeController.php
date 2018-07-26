@@ -49,7 +49,7 @@ class GroupeController extends Controller
         $groupe->setUser($this->getUser()); // Définis l'utilisateur courant comme créateur du groupe
         $form = $this->createForm(GroupeType::class, $groupe); // Crée un nouveau form à partir de la classe GroupeType
         $form->handleRequest($request); // Mettre les POST dans le formulaire
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($groupe);

@@ -121,6 +121,7 @@
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>
+
                     </div>
         
                     <div class="affichage-membres">
@@ -177,9 +178,11 @@
                     <div class="groupe">
             
                         {% if groupe.icon is not empty %}
-                        <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe" class="avatar"> {% else %}
-                        <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar"> {% endif %}
-            
+                            <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe" class="avatar">
+                        {% else %}
+                            <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar">
+                        {% endif %}
+
                         <div class="part-right text-center">
                             <div class="nom">{{ groupe.name }}</div>
                             <br>
@@ -287,7 +290,7 @@
             {% if app.user.avatar.path is not empty %}
             <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto"> {% else %}
             <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut"> {% endif %}
-    
+        
             <p> {{ app.user.username }} </p>
         </div>
     
