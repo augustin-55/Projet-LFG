@@ -57,7 +57,7 @@ class Game
         return $this->game_s;
     }
 
-    public function addGame(group $game): self
+    public function addGame($game): self
     {
         if (!$this->game_s->contains($game)) {
             $this->game_s[] = $game;
@@ -67,7 +67,7 @@ class Game
         return $this;
     }
 
-    public function removeGame(group $game): self
+    public function removeGame($game): self
     {
         if ($this->game_s->contains($game)) {
             $this->game_s->removeElement($game);
@@ -133,5 +133,10 @@ class Game
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

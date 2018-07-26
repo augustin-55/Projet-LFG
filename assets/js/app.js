@@ -71,12 +71,16 @@ $(document).ready(function() {
 
     $('.nb-joueurs-link').click(function(e) {
 
-        $('.affichage-membres').show();
+        $(this).parents('.groupe-affichage').children('.group-part').hide()
+
+        $(this).parents('.groupe-affichage').children('.affichage-membres').show();
         e.stopPropagation();
 
     });
 
     $(document).click(function(e) {
+
+        $('.group-part').show();
 
         $('.affichage-membres').hide();
         e.stopPropagation();

@@ -174,17 +174,32 @@ header {
                     display: flex;
                     flex-direction: column;
                     padding: 5px 10px;
-                    width: 240px;
                     border-radius: 5px;
                     margin-right: 10px;
 
                     .affichage-membres {
-                        border: 1px solid black;
-                        width: 220px;
-                        max-height: 70px;
-                        background-color: white;
+                        width: 170px;
+                        height: 140px;
+                        overflow: auto;
+                        background-color: #2b2b2b;
                         margin: 5px auto;
                         display: none;
+                        padding: 10px;
+
+                        h3 {
+                            color: $vert-base;
+                            font-family: 'Teko-Regular';
+                            font-size: 18px;
+                            margin: 0 0 5px 0;
+                            text-align: left;
+                        }
+
+                        p {
+                            color: white;
+                            font-family: 'Teko-Regular';
+                            font-size: 18px;
+                            margin: 0;
+                        }
                     }
 
                     .group-part {
@@ -378,8 +393,17 @@ header {
 
                 .formulaire-ajout-groupe {
 
-                    .input-form {
-                        margin: 10px auto;
+                    label, legend {
+                        color: white;
+                        font-size: 18px;
+                        font-family: 'Teko-Regular';
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .form-control, .custom-file-label {
+                        margin: 0;
+                        padding: 0;
                         width: 300px;
                         border: none;
                         border-bottom: 1px solid $vert-base;
@@ -387,30 +411,37 @@ header {
                         color: white;
                         font-size: 18px;
                         font-family: 'Teko-Regular';
+                        border-radius: 0;
                     }
 
-                    .submit-form {
+                    button {
+                        border: 1px solid $vert-base;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        font-family: 'Teko-Regular';
+                        background-color: #1d1d1d;
+                        color: white;
+                        padding: 2px 10px;
                         text-align: center;
-                        margin-top: 10px;
+                    }
 
-                        input {
-                            border: 1px solid $vert-base;
-                            border-radius: 5px;
-                            font-size: 16px;
-                            font-family: 'Teko-Regular';
-                            background-color: #1d1d1d;
-                            color: white;
-                            padding: 2px 10px;
-                            text-align: center;
-                        }
-
-                        input:hover,
-                        input:focus,
-                        input:active {
-                            background-color: #0c0c0c;
-                            color: $vert-base;
-                            transition: all 0.4s ease;
-                        }
+                    .custom-file-label::after {
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        font-family: 'Teko-Regular';
+                        background-color: #1d1d1d;
+                        color: $vert-base;
+                        padding: 2px 10px;
+                        text-align: center;
+                    }
+    
+                    button:hover,
+                    button:focus,
+                    button:active {
+                        background-color: #0c0c0c;
+                        color: $vert-base;
+                        transition: all 0.4s ease;
                     }
                 }
             }
@@ -594,28 +625,18 @@ header {
             align-items: center;
             margin-bottom: 20px;
 
-            .friendPhoto {
-                img {
-                    max-width: 50px;
-                    max-height: 50px;
-                    border: 1px solid black;
-                    border-radius: 100%;
-                    margin: 0 10px;
-                }
+            img {
+                max-width: 50px;
+                max-height: 50px;
+                border-radius: 100%;
+                margin: 0 10px;
             }
     
-            a {
+            p {
                 color: white;
                 font-family: 'Teko-Regular';
                 font-size: 18px;
                 margin: 0 5px 0 0;
-            }
-
-            a:hover,
-            a:focus,
-            a:active {
-                color: #d0df00;
-                text-decoration: none;
             }
         }
     }

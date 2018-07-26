@@ -24,22 +24,18 @@ class Groupe
     private $user_groupe;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $groupe_game;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
-    private $membre;
+    private $user;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToOne(targetEntity="Image", cascade="all")
      */
     private $icon;
 
@@ -89,18 +85,6 @@ class Groupe
         return $this;
     }
 
-    public function getGroupeGame(): ?int
-    {
-        return $this->groupe_game;
-    }
-
-    public function setGroupeGame(int $groupe_game): self
-    {
-        $this->groupe_game = $groupe_game;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -125,12 +109,12 @@ class Groupe
         return $this;
     }
 
-    public function getIcon(): ?string
+    public function getIcon()
     {
         return $this->icon;
     }
 
-    public function setIcon(string $icon): self
+    public function setIcon(Image $icon): self
     {
         $this->icon = $icon;
 
@@ -157,6 +141,26 @@ class Groupe
     public function setGamegroupe(?Game $gamegroupe): self
     {
         $this->gamegroupe = $gamegroupe;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of user
+     */ 
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set the value of user
+     *
+     * @return  self
+     */ 
+    public function setUser($user)
+    {
+        $this->user = $user;
 
         return $this;
     }

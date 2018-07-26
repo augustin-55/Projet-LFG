@@ -4,3 +4,4 @@ easy_admin:
        - App\Entity\User
        - App\Entity\Groupe
        - App\Entity\Message
+       - App\Entity\Game

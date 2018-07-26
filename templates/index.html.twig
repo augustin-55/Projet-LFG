@@ -123,7 +123,7 @@
 
                         <div class="group-part">
                             {% if groupe.icon is not empty %}
-                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe">
+                            <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe">
                             {% else %}
                                 <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut">
                             {% endif %}
@@ -140,7 +140,10 @@
 
                         <div class="affichage-membres">
 
-                            <p>membre</p> 
+                            {% for user in groupe.userGroupe %}
+                            <h3>Membres :</h3>
+                            <p>{{ user.username }}</p> 
+                            {% endfor %}
 
                         </div>
 
@@ -202,7 +205,7 @@
                     <div class="groupe">
 
                         {% if groupe.icon is not empty %}
-                            <img src="{{ asset(groupe.icon) }}" alt="logo-groupe" class="avatar">
+                            <img src="{{ asset(groupe.icon.webPath) }}" alt="logo-groupe" class="avatar">
                         {% else %}
                             <img src="{{ asset('images/groupeDefaut.png') }}" alt="Image de groupe par défaut" class="avatar">
                         {% endif %}
@@ -227,7 +230,7 @@
                 <h2>Créer un groupe</h2>
                 <hr>
                 <div class="ajout-groupe">
-                    <form action="#" method="POST" class="formulaire-ajout-groupe">
+                    {#<form action="#" method="POST" class="formulaire-ajout-groupe">
                         <input type="text" name="name" placeholder="Nom du groupe" class="input-form">
                         <br>
                         <select name="" class="input-form">
@@ -248,7 +251,8 @@
                         <div class="submit-form">
                             <input type="submit" value="Créer">
                         </div>
-                    </form>
+                    </form>#}
+                    {{ render(controller('App\\Controller\\GroupeController::add', {'request' : app.request})) }}
                 </div>
             </section>
         </div>
@@ -291,10 +295,13 @@
 
 
             <div class="friend-div">
-                <div class="friendPhoto">
-                    <img src="{{ asset('images/avatar.jpg') }}" alt="avatar">
-                </div>
-                <a href="#">Homer</a>
+                {% if app.user.avatar.path is not empty %}
+                    <img src="{{ asset(app.user.avatar.webPath) }}" alt="avatar" class="userPhoto" >
+                {% else %}
+                    <img src="{{ asset('images/avatar2.png') }}" alt="avatar par défaut">
+                {% endif %}
+
+                <p> {{ app.user.username }} </p>
             </div>
 
         </div>
